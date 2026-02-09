@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		E174DB7B2F35FCEA00635DA3 /* Keyden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyden.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E174DB7B2F35FCEA00635DA3 /* TokenMint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokenMint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		E174DB7D2F35FCEA00635DA3 /* Keyden */ = {
+		E174DB7D2F35FCEA00635DA3 /* TokenMint */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Keyden;
+			path = TokenMint;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		E174DB722F35FCEA00635DA3 = {
 			isa = PBXGroup;
 			children = (
-				E174DB7D2F35FCEA00635DA3 /* Keyden */,
+				E174DB7D2F35FCEA00635DA3 /* TokenMint */,
 				E174DB7C2F35FCEA00635DA3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		E174DB7C2F35FCEA00635DA3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E174DB7B2F35FCEA00635DA3 /* Keyden.app */,
+				E174DB7B2F35FCEA00635DA3 /* TokenMint.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E174DB7A2F35FCEA00635DA3 /* Keyden */ = {
+		E174DB7A2F35FCEA00635DA3 /* TokenMint */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E174DB862F35FCEB00635DA3 /* Build configuration list for PBXNativeTarget "Keyden" */;
+			buildConfigurationList = E174DB862F35FCEB00635DA3 /* Build configuration list for PBXNativeTarget "TokenMint" */;
 			buildPhases = (
 				E174DB772F35FCEA00635DA3 /* Sources */,
 				E174DB782F35FCEA00635DA3 /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				E174DB7D2F35FCEA00635DA3 /* Keyden */,
+				E174DB7D2F35FCEA00635DA3 /* TokenMint */,
 			);
-			name = Keyden;
+			name = TokenMint;
 			packageProductDependencies = (
 			);
-			productName = Keyden;
-			productReference = E174DB7B2F35FCEA00635DA3 /* Keyden.app */;
+			productName = TokenMint;
+			productReference = E174DB7B2F35FCEA00635DA3 /* TokenMint.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E174DB762F35FCEA00635DA3 /* Build configuration list for PBXProject "Keyden" */;
+			buildConfigurationList = E174DB762F35FCEA00635DA3 /* Build configuration list for PBXProject "TokenMint" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E174DB7A2F35FCEA00635DA3 /* Keyden */,
+				E174DB7A2F35FCEA00635DA3 /* TokenMint */,
 			);
 		};
 /* End PBXProject section */
@@ -253,6 +253,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TokenMint;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -263,8 +264,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cookabc.Keyden;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cookabc.TokenMint;
+				PRODUCT_NAME = TokenMint;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -284,6 +285,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TokenMint;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -294,8 +296,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cookabc.Keyden;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cookabc.TokenMint;
+				PRODUCT_NAME = TokenMint;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -309,7 +311,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E174DB762F35FCEA00635DA3 /* Build configuration list for PBXProject "Keyden" */ = {
+		E174DB762F35FCEA00635DA3 /* Build configuration list for PBXProject "TokenMint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E174DB842F35FCEB00635DA3 /* Debug */,
@@ -318,7 +320,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E174DB862F35FCEB00635DA3 /* Build configuration list for PBXNativeTarget "Keyden" */ = {
+		E174DB862F35FCEB00635DA3 /* Build configuration list for PBXNativeTarget "TokenMint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E174DB872F35FCEB00635DA3 /* Debug */,
