@@ -28,9 +28,9 @@ The source code is located in `TokenMint/`:
 *   `Utilities/`: Helpers and localization.
 
 ## Requirements
-*   iOS 15.0+
-*   Xcode 14.0+
-*   Swift 5.7+
+*   iOS 17.0+
+*   Xcode 16.0+
+*   Swift 5.0+
 
 ## Building
 1.  Open `TokenMint.xcodeproj` in Xcode.
