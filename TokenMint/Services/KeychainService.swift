@@ -12,6 +12,13 @@ import Security
 final class KeychainService {
     static let shared = KeychainService()
     
+    enum KeychainError: Error {
+        case itemNotFound
+        case duplicateItem
+        case unexpectedStatus(OSStatus)
+        case dataConversionError
+    }
+
     private let serviceName = "com.tokenmint.app"
     
     private init() {}
@@ -20,23 +27,35 @@ final class KeychainService {
     
     /// Save data to Keychain
     func save(key: String, data: Data) -> Bool {
-        // Delete existing item first
-        delete(key: key)
-        
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: serviceName,
-            kSecAttrAccount as String: key,
+            kSecAttrAccount as String: key
+        ]
+
+        let attributes: [String: Any] = [
             kSecValueData as String: data,
             kSecAttrAccessible as String: kSecAttrAccessibleWhenUnlocked
         ]
         
-        let status = SecItemAdd(query as CFDictionary, nil)
+        // Try to update first
+        let status = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
+
+        if status == errSecItemNotFound {
+            // Item doesn't exist, add it
+            var newQuery = query
+            newQuery[kSecValueData as String] = data
+            newQuery[kSecAttrAccessible as String] = kSecAttrAccessibleWhenUnlocked
+
+            let addStatus = SecItemAdd(newQuery as CFDictionary, nil)
+            return addStatus == errSecSuccess
+        }
+
         return status == errSecSuccess
     }
     
     /// Load data from Keychain
-    func load(key: String) -> Data? {
+    func load(key: String) -> Result<Data, KeychainError> {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: serviceName,
@@ -48,11 +67,17 @@ final class KeychainService {
         var result: AnyObject?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
         
-        guard status == errSecSuccess else {
-            return nil
+        if status == errSecSuccess {
+            if let data = result as? Data {
+                return .success(data)
+            } else {
+                return .failure(.dataConversionError)
+            }
+        } else if status == errSecItemNotFound {
+            return .failure(.itemNotFound)
+        } else {
+            return .failure(.unexpectedStatus(status))
         }
-        
-        return result as? Data
     }
     
     /// Delete item from Keychain
@@ -78,8 +103,12 @@ final class KeychainService {
     
     /// Load string from Keychain
     func loadString(key: String) -> String? {
-        guard let data = load(key: key) else { return nil }
-        return String(data: data, encoding: .utf8)
+        switch load(key: key) {
+        case .success(let data):
+            return String(data: data, encoding: .utf8)
+        case .failure:
+            return nil
+        }
     }
     
     // MARK: - Specific Keys

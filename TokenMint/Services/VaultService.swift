@@ -16,6 +16,7 @@ final class VaultService: ObservableObject {
     
     @Published private(set) var vault: Vault = Vault()
     @Published private(set) var isUnlocked: Bool = false
+    @Published private(set) var initializationError: Error?
     
     private var encryptionKey: SymmetricKey?
     private let keychain = KeychainService.shared
@@ -38,30 +39,42 @@ final class VaultService: ObservableObject {
     private func initializeAndUnlock() {
         do {
             encryptionKey = try getOrCreateEncryptionKey()
-            isUnlocked = true
             try loadVault()
+            isUnlocked = true
+            initializationError = nil
         } catch {
             print("Failed to initialize vault: \(error)")
+            initializationError = error
+            isUnlocked = false
         }
     }
     
     /// Get existing key from Keychain or create a new one
     private func getOrCreateEncryptionKey() throws -> SymmetricKey {
         // Try to load existing key from Keychain
-        if let keyData = keychain.load(key: KeychainService.Keys.encryptionKey) {
+        switch keychain.load(key: KeychainService.Keys.encryptionKey) {
+        case .success(let keyData):
             return SymmetricKey(data: keyData)
+
+        case .failure(let error):
+            // Only generate new key if item not found
+            if case .itemNotFound = error {
+                // Generate new random key
+                let key = SymmetricKey(size: .bits256)
+                let keyData = key.withUnsafeBytes { Data($0) }
+
+                // Save to Keychain
+                guard keychain.save(key: KeychainService.Keys.encryptionKey, data: keyData) else {
+                    throw VaultError.keyDerivationFailed
+                }
+
+                return key
+            } else {
+                // Propagate other errors
+                print("Keychain error: \(error)")
+                throw VaultError.keyDerivationFailed
+            }
         }
-        
-        // Generate new random key
-        let key = SymmetricKey(size: .bits256)
-        let keyData = key.withUnsafeBytes { Data($0) }
-        
-        // Save to Keychain
-        guard keychain.save(key: KeychainService.Keys.encryptionKey, data: keyData) else {
-            throw VaultError.keyDerivationFailed
-        }
-        
-        return key
     }
     
     /// Lock the vault (for manual lock if needed)
@@ -101,7 +114,7 @@ final class VaultService: ObservableObject {
     
     /// Save vault to disk
     func saveVault() throws {
-        guard let key = encryptionKey else {
+        guard isUnlocked, let key = encryptionKey else {
             throw VaultError.locked
         }
         
