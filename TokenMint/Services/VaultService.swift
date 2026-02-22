@@ -11,6 +11,7 @@ import Combine
 import SwiftUI
 
 /// Service for managing encrypted vault storage
+@MainActor
 final class VaultService: ObservableObject {
     static let shared = VaultService()
     

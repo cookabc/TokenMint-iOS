@@ -9,7 +9,7 @@ import Foundation
 import CryptoKit
 
 /// Service for generating TOTP codes
-final class TOTPService {
+final class TOTPService: Sendable {
     static let shared = TOTPService()
     
     private init() {}

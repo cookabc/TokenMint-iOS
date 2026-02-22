@@ -25,6 +25,7 @@ enum LanguageMode: String, CaseIterable {
 }
 
 // MARK: - Language Manager
+@MainActor
 class LanguageManager: ObservableObject {
     static let shared = LanguageManager()
     

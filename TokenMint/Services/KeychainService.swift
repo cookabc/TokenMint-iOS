@@ -9,7 +9,7 @@ import Foundation
 import Security
 
 /// Service for secure Keychain storage
-final class KeychainService {
+final class KeychainService: Sendable {
     static let shared = KeychainService()
     
     enum KeychainError: Error {
