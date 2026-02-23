@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var vaultService: VaultService
+    @Environment(VaultService.self) var vaultService
     @State private var showingAddSheet = false
     @State private var searchText = ""
     

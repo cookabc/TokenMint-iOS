@@ -6,53 +6,47 @@
 //
 
 import SwiftUI
-import Combine
 
 struct TokenRowView: View {
     let token: Token
-    @State private var code: String = "000000"
-    @State private var progress: Double = 1.0
     @State private var isCopied: Bool = false
     
-    // Timer to update code and progress
-    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
-    
     var body: some View {
-        HStack(spacing: 16) {
-            // Left: Token Info
-            VStack(alignment: .leading, spacing: 4) {
-                Text(token.issuer.isEmpty ? "Unknown" : token.issuer)
-                    .font(.headline)
-                    .foregroundColor(.primary)
-                
-                Text(token.account.isEmpty ? token.displayName : token.account)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .lineLimit(1)
-            }
+        TimelineView(.periodic(from: .now, by: 0.1)) { _ in
+            let code = TOTPService.shared.generateCode(for: token) ?? "000000"
+            let progress = TOTPService.shared.progress(for: token.period)
+            let isExpiring = progress < 0.16
             
-            Spacer()
-            
-            // Right: Code and Timer
-            HStack(spacing: 12) {
-                Text(formattedCode)
-                    .font(.system(.title2, design: .monospaced))
-                    .fontWeight(.bold)
-                    .foregroundColor(isExpiring ? .red : .primary)
-                    .onTapGesture {
-                        copyToClipboard()
-                    }
+            HStack(spacing: 16) {
+                // Left: Token Info
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(token.issuer.isEmpty ? "Unknown" : token.issuer)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+
+                    Text(token.account.isEmpty ? token.displayName : token.account)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                }
+
+                Spacer()
                 
-                CircularProgressView(progress: progress, color: isExpiring ? .red : .blue)
-                    .frame(width: 24, height: 24)
+                // Right: Code and Timer
+                HStack(spacing: 12) {
+                    Text(formatCode(code))
+                        .font(.system(.title2, design: .monospaced))
+                        .fontWeight(.bold)
+                        .foregroundColor(isExpiring ? .red : .primary)
+                        .onTapGesture {
+                            copyToClipboard(code: code)
+                        }
+
+                    CircularProgressView(progress: progress, color: isExpiring ? .red : .blue)
+                        .frame(width: 24, height: 24)
+                }
             }
-        }
-        .padding(.vertical, 8)
-        .onReceive(timer) { _ in
-            updateCode()
-        }
-        .onAppear {
-            updateCode()
+            .padding(.vertical, 8)
         }
         .overlay(
             Group {
@@ -69,7 +63,7 @@ struct TokenRowView: View {
         )
     }
     
-    private var formattedCode: String {
+    private func formatCode(_ code: String) -> String {
         // Add space in middle for 6 digits (e.g. 123 456)
         if code.count == 6 {
             let first = code.prefix(3)
@@ -79,21 +73,7 @@ struct TokenRowView: View {
         return code
     }
     
-    private var isExpiring: Bool {
-        progress < 0.16 // Less than 5 seconds (approx 1/6 of 30s)
-    }
-    
-    private func updateCode() {
-        // Generate new code
-        if let newCode = TOTPService.shared.generateCode(for: token) {
-            self.code = newCode
-        }
-        
-        // Update progress
-        self.progress = TOTPService.shared.progress(for: token.period)
-    }
-    
-    private func copyToClipboard() {
+    private func copyToClipboard(code: String) {
         UIPasteboard.general.string = code
         
         // Haptic feedback

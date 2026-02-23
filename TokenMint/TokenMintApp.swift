@@ -16,7 +16,7 @@ struct TokenMintApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(VaultService.shared)
+                .environment(VaultService.shared)
         }
     }
 }

@@ -7,17 +7,18 @@
 
 import Foundation
 import CryptoKit
-import Combine
+import Observation
 import SwiftUI
 
 /// Service for managing encrypted vault storage
 @MainActor
-final class VaultService: ObservableObject {
+@Observable
+final class VaultService {
     static let shared = VaultService()
     
-    @Published private(set) var vault: Vault = Vault()
-    @Published private(set) var isUnlocked: Bool = false
-    @Published private(set) var initializationError: Error?
+    private(set) var vault: Vault = Vault()
+    private(set) var isUnlocked: Bool = false
+    private(set) var initializationError: Error?
     
     private var encryptionKey: SymmetricKey?
     private let keychain = KeychainService.shared

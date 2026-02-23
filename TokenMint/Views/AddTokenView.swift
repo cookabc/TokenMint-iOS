@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AddTokenView: View {
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var vaultService: VaultService
+    @Environment(\.dismiss) var dismiss
+    @Environment(VaultService.self) var vaultService
     
     @State private var issuer: String = ""
     @State private var account: String = ""
@@ -22,7 +22,7 @@ struct AddTokenView: View {
     @State private var showError: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section(header: Text(L10n.account)) {
                     TextField(L10n.servicePlaceholder, text: $issuer)
@@ -64,7 +64,7 @@ struct AddTokenView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(L10n.cancel) {
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     }
                 }
                 
@@ -98,7 +98,7 @@ struct AddTokenView: View {
         // Save to Vault
         do {
             try vaultService.addToken(token)
-            presentationMode.wrappedValue.dismiss()
+            dismiss()
         } catch {
             errorMessage = error.localizedDescription
         }

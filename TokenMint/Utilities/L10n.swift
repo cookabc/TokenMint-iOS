@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import Combine
+import Observation
 
 // MARK: - Language Mode
 enum LanguageMode: String, CaseIterable {
@@ -26,16 +26,22 @@ enum LanguageMode: String, CaseIterable {
 
 // MARK: - Language Manager
 @MainActor
-class LanguageManager: ObservableObject {
+@Observable
+class LanguageManager {
     static let shared = LanguageManager()
     
-    @AppStorage("appLanguage") var languageMode: LanguageMode = .system {
+    var languageMode: LanguageMode = .system {
         didSet {
-            objectWillChange.send()
+            UserDefaults.standard.set(languageMode.rawValue, forKey: "appLanguage")
         }
     }
     
-    private init() {}
+    private init() {
+        if let data = UserDefaults.standard.string(forKey: "appLanguage"),
+           let mode = LanguageMode(rawValue: data) {
+            self.languageMode = mode
+        }
+    }
     
     var currentLanguageCode: String {
         switch languageMode {
