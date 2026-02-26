@@ -25,6 +25,7 @@ struct TokenMintApp: App {
             } else {
                 TokenListView()
                     .environment(vaultService)
+                    .environment(biometricService)
                     .environment(router)
             }
         }

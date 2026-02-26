@@ -63,7 +63,7 @@ struct TokenListView: View {
                 case .addToken:
                     AddTokenView()
                 case .scanner:
-                    Text("QR Scanner — TODO W10")
+                    ScannerView()
                 case .settings:
                     SettingsView()
                 }

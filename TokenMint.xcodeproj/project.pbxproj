@@ -29,6 +29,7 @@
 		8E921C46B59409EFBA558036 /* HapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2017DEA0458120A1BC4D69B /* HapticService.swift */; };
 		9914265067B027A20C96F115 /* AppThemeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2457CA2D802A91D2B2616E /* AppThemeOption.swift */; };
 		9FA95008792FE380DB50BFB1 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B500EAB88E34C4874F392 /* Accessibility.swift */; };
+		A3EC0E62E1194810A4270B3E /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB9058E2713EC2509F78C1C /* ScannerView.swift */; };
 		ADC00BA9905E56F435ED671C /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23710591D90478AF508391 /* BiometricService.swift */; };
 		AEB29C8DCDFF1941CB09BB56 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC90AA3A635B47859B39054 /* Token.swift */; };
 		CE479524EB028CB412558BB2 /* TokenRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F26CF777FDF76CCF9834FA /* TokenRowView.swift */; };
@@ -69,6 +70,7 @@
 		12C681B454DABE72C61969A2 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
 		1434AA6224CB74EB58C11C32 /* TokenMintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMintApp.swift; sourceTree = "<group>"; };
 		1BB211722109861EEA0A807D /* KeychainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProtocol.swift; sourceTree = "<group>"; };
+		1BB9058E2713EC2509F78C1C /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		1C78064D6A0507E81BCA287D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		3009DAAF968D826007F06ADE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		303EC7B0EE24A62217B68E4C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 			);
 			name = UnitTests;
 			path = Tests/UnitTests;
+			sourceTree = "<group>";
+		};
+		090F056ACF7450647912D009 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1BB9058E2713EC2509F78C1C /* ScannerView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0E7521298009909A8D75BF6B /* TokenList */ = {
@@ -232,6 +242,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		994FA101773907F3CFFA1F86 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				090F056ACF7450647912D009 /* Views */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
 		9C83ECABB17F79FB7033F8B9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,17 +353,11 @@
 			children = (
 				C56D321483A6C7D03266E091 /* AddToken */,
 				B43EAAE393BA19AFA755A7E9 /* LockScreen */,
+				994FA101773907F3CFFA1F86 /* Scanner */,
 				5B6B47A3DE5C58A15652F0B7 /* Settings */,
 				0E7521298009909A8D75BF6B /* TokenList */,
 			);
 			path = Features;
-			sourceTree = "<group>";
-		};
-		"TEMP_DCC2F010-B554-42DF-8910-479EC159BD2B" /* Scanner */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Scanner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,6 +496,7 @@
 				71121E632EBCF32EEB863CD0 /* LockScreenView.swift in Sources */,
 				DC3FD86F8984C7A14302AF3A /* Logger.swift in Sources */,
 				573371E900312A98D2C6B274 /* Router.swift in Sources */,
+				A3EC0E62E1194810A4270B3E /* ScannerView.swift in Sources */,
 				E0B91534D0D7D94056C35390 /* SettingsView.swift in Sources */,
 				349A282614277A10C652449D /* TOTPService.swift in Sources */,
 				AEB29C8DCDFF1941CB09BB56 /* Token.swift in Sources */,

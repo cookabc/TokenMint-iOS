@@ -1,9 +1,20 @@
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct SettingsView: View {
     @Environment(BiometricService.self) private var biometricService
+    @Environment(VaultService.self) private var vaultService
     @AppStorage("hapticEnabled") private var hapticEnabled = true
     @AppStorage("selectedTheme") private var selectedTheme: AppThemeOption = .system
+
+    @State private var showImporter = false
+    @State private var importResult: ImportResult?
+    @State private var showImportAlert = false
+
+    private enum ImportResult {
+        case success(Int)
+        case failure(String)
+    }
 
     var body: some View {
         @Bindable var biometricService = biometricService
@@ -28,6 +39,21 @@ struct SettingsView: View {
                 .accessibilityIdentifier(AccessibilityID.settingsThemePicker)
             }
 
+            Section("Data") {
+                ShareLink(
+                    item: exportJSON(),
+                    preview: SharePreview("TokenMint Backup", image: Image(systemName: "lock.shield"))
+                ) {
+                    Label("Export Vault", systemImage: "square.and.arrow.up")
+                }
+
+                Button {
+                    showImporter = true
+                } label: {
+                    Label("Import Vault", systemImage: "square.and.arrow.down")
+                }
+            }
+
             Section("About") {
                 LabeledContent("Version") {
                     Text(
@@ -35,9 +61,29 @@ struct SettingsView: View {
                             ?? "1.0"
                     )
                 }
+                LabeledContent("Tokens") {
+                    Text("\(vaultService.vault.tokens.count)")
+                }
             }
         }
         .navigationTitle("Settings")
+        .fileImporter(
+            isPresented: $showImporter,
+            allowedContentTypes: [.json],
+            onCompletion: handleImport
+        )
+        .alert("Import Complete", isPresented: $showImportAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            switch importResult {
+            case .success(let count):
+                Text("\(count) token(s) imported successfully.")
+            case .failure(let msg):
+                Text("Import failed: \(msg)")
+            case nil:
+                Text("")
+            }
+        }
     }
 
     private var biometricLabel: String {
@@ -46,6 +92,52 @@ struct SettingsView: View {
         case .touchID: String(localized: "Touch ID")
         case .opticID: String(localized: "Optic ID")
         default: String(localized: "Biometric Unlock")
+        }
+    }
+
+    // MARK: - Export / Import
+
+    private func exportJSON() -> String {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        let tokens = vaultService.vault.tokens
+        guard let data = try? encoder.encode(tokens),
+              let json = String(data: data, encoding: .utf8) else {
+            return "[]"
+        }
+        return json
+    }
+
+    private func handleImport(_ result: Result<URL, Error>) {
+        switch result {
+        case .success(let url):
+            guard url.startAccessingSecurityScopedResource() else {
+                importResult = .failure("Access denied")
+                showImportAlert = true
+                return
+            }
+            defer { url.stopAccessingSecurityScopedResource() }
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                let tokens = try decoder.decode([Token].self, from: data)
+                let existingIds = Set(vaultService.vault.tokens.map(\.id))
+                var imported = 0
+                for token in tokens where !existingIds.contains(token.id) {
+                    Task { try? await vaultService.addToken(token) }
+                    imported += 1
+                }
+                importResult = .success(imported)
+            } catch {
+                importResult = .failure(error.localizedDescription)
+            }
+            showImportAlert = true
+
+        case .failure(let error):
+            importResult = .failure(error.localizedDescription)
+            showImportAlert = true
         }
     }
 }
