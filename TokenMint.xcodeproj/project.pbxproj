@@ -16,6 +16,7 @@
 		44E3AC6428530F44C838C863 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1023E60B833AFC8F7207001 /* ViewState.swift */; };
 		482077ECE3F3B60E97CF2042 /* TOTPServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2551E5612475487B4429A8 /* TOTPServiceTests.swift */; };
 		573371E900312A98D2C6B274 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67182F999E02C72B3AEF35F6 /* Router.swift */; };
+		6023A98C92E0B83C9AF24674 /* VaultServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34668FE0BA793264BC1F34 /* VaultServiceTests.swift */; };
 		6DB4A500611D1634205C63D5 /* AddTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3109FFAE0285E6027A7088B3 /* AddTokenView.swift */; };
 		6E2B13C4CB2FD1DB4B794314 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61DBB35975F647603C4454 /* Color+Extensions.swift */; };
 		6FBEA7250C25B1C8AA14D91D /* VaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF97BBDACC2EACA5AA25793 /* VaultRepository.swift */; };
@@ -30,6 +31,7 @@
 		9914265067B027A20C96F115 /* AppThemeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2457CA2D802A91D2B2616E /* AppThemeOption.swift */; };
 		9FA95008792FE380DB50BFB1 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B500EAB88E34C4874F392 /* Accessibility.swift */; };
 		A3EC0E62E1194810A4270B3E /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB9058E2713EC2509F78C1C /* ScannerView.swift */; };
+		AC0421711876B6A1C31BB39D /* RouterAndModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD025A57F53E43683ED75D9 /* RouterAndModelTests.swift */; };
 		ADC00BA9905E56F435ED671C /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23710591D90478AF508391 /* BiometricService.swift */; };
 		AEB29C8DCDFF1941CB09BB56 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC90AA3A635B47859B39054 /* Token.swift */; };
 		CE479524EB028CB412558BB2 /* TokenRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F26CF777FDF76CCF9834FA /* TokenRowView.swift */; };
@@ -72,11 +74,13 @@
 		1BB211722109861EEA0A807D /* KeychainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProtocol.swift; sourceTree = "<group>"; };
 		1BB9058E2713EC2509F78C1C /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		1C78064D6A0507E81BCA287D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		1FD025A57F53E43683ED75D9 /* RouterAndModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterAndModelTests.swift; sourceTree = "<group>"; };
 		3009DAAF968D826007F06ADE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		303EC7B0EE24A62217B68E4C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3109FFAE0285E6027A7088B3 /* AddTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenView.swift; sourceTree = "<group>"; };
 		3121BEC479B8F16DEFF4C88F /* TokenMintTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TokenMintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F26CF777FDF76CCF9834FA /* TokenRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRowView.swift; sourceTree = "<group>"; };
+		3D34668FE0BA793264BC1F34 /* VaultServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultServiceTests.swift; sourceTree = "<group>"; };
 		417E3F9DFB4FB685799FF6CE /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		4C2551E5612475487B4429A8 /* TOTPServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPServiceTests.swift; sourceTree = "<group>"; };
 		55FC7FF78B32649A83F0A923 /* VaultServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultServiceProtocol.swift; sourceTree = "<group>"; };
@@ -107,7 +111,9 @@
 		0902322FD1CC1BFE568277BF /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				1FD025A57F53E43683ED75D9 /* RouterAndModelTests.swift */,
 				4C2551E5612475487B4429A8 /* TOTPServiceTests.swift */,
+				3D34668FE0BA793264BC1F34 /* VaultServiceTests.swift */,
 			);
 			name = UnitTests;
 			path = Tests/UnitTests;
@@ -471,7 +477,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC0421711876B6A1C31BB39D /* RouterAndModelTests.swift in Sources */,
 				482077ECE3F3B60E97CF2042 /* TOTPServiceTests.swift in Sources */,
+				6023A98C92E0B83C9AF24674 /* VaultServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

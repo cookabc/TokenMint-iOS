@@ -52,6 +52,7 @@ struct TokenListView: View {
                     } label: {
                         Image(systemName: "gearshape")
                     }
+                    .accessibilityIdentifier("settings_button")
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     EditButton()
