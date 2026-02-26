@@ -1,5 +1,5 @@
-import Testing
 import Foundation
+import Testing
 @testable import TokenMint
 
 @Suite("TOTPService Tests")
@@ -29,7 +29,11 @@ struct TOTPServiceTests {
         // "JBSWY3DPEHPK3PXP" decodes to "Hello!DE=<"... known test vector
         let data = service.base32Decode("JBSWY3DPEHPK3PXP")
         #expect(data != nil)
-        #expect(!data!.isEmpty)
+        guard let data else {
+            Issue.record("Expected non-nil data from base32Decode")
+            return
+        }
+        #expect(!data.isEmpty)
     }
 
     @Test("Base32 decode returns nil for invalid input")
@@ -53,8 +57,8 @@ struct TOTPServiceTests {
 
     @Test("Progress is between 0 and 1")
     func progress() {
-        let p = service.progress(period: 30)
-        #expect(p >= 0.0 && p < 1.0)
+        let progressValue = service.progress(period: 30)
+        #expect(progressValue >= 0.0 && progressValue < 1.0)
     }
 
     // MARK: - TOTP Code Generation (RFC 6238 test vectors)

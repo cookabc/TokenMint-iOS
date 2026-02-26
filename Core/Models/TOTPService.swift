@@ -1,9 +1,8 @@
-import Foundation
 import CryptoKit
+import Foundation
 
 /// RFC 6238 TOTP implementation. Pure value-type, no side effects.
 struct TOTPService: Sendable {
-
     /// Generate a TOTP code for a token at a given date.
     func generateCode(for token: Token, at date: Date = Date()) -> String {
         guard let keyData = base32Decode(token.secret) else {

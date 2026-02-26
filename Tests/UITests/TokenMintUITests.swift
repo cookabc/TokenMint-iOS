@@ -1,7 +1,6 @@
 import XCTest
 
 final class TokenMintUITests: XCTestCase {
-
     private var app: XCUIApplication!
 
     override func setUpWithError() throws {

@@ -48,7 +48,7 @@ struct Vault: Codable, Sendable {
     var tokens: [Token] = []
     var vaultVersion: Int = 0
     var schemaVersion: Int = 1
-    var updatedAt: Date = Date()
+    var updatedAt = Date()
 }
 
 // MARK: - EncryptedVault

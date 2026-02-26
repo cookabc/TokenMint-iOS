@@ -4,7 +4,7 @@ import Foundation
 @MainActor
 @Observable
 final class VaultService: VaultServiceProtocol {
-    private(set) var vault: Vault = Vault()
+    private(set) var vault = Vault()
     private let repository: VaultRepositoryProtocol
     private let keychain: KeychainServiceProtocol
 
@@ -50,9 +50,9 @@ final class VaultService: VaultServiceProtocol {
     func reorderTokens(_ tokens: [Token]) async throws {
         var updated = vault
         updated.tokens = tokens.enumerated().map { index, token in
-            var t = token
-            t.sortOrder = index
-            return t
+            var reordered = token
+            reordered.sortOrder = index
+            return reordered
         }
         updated.vaultVersion += 1
         updated.updatedAt = Date()
