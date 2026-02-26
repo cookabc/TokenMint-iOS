@@ -47,4 +47,14 @@ enum DesignTokens {
         static let large: CGFloat = 16
         static let extraLarge: CGFloat = 20
     }
+
+    // MARK: - Sizes
+
+    enum Size {
+        static let countdownRing: CGFloat = 32
+        static let lockIcon = Font.system(size: 64)
+        static let successIcon = Font.title2
+        static let pinIcon = Font.caption2
+        static let ringStroke: CGFloat = 3
+    }
 }

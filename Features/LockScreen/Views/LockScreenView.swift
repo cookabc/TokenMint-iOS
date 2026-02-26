@@ -8,8 +8,8 @@ struct LockScreenView: View {
             Spacer()
 
             Image(systemName: biometricIcon)
-                .font(.system(size: 64))
-                .foregroundStyle(.secondary)
+                .font(DesignTokens.Size.lockIcon)
+                .foregroundStyle(DesignTokens.Colors.secondary)
                 .symbolEffect(.bounce, options: .repeating.speed(0.5))
 
             Text("TokenMint")
@@ -17,7 +17,7 @@ struct LockScreenView: View {
 
             Text("Tap to Unlock")
                 .font(DesignTokens.Typography.body)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(DesignTokens.Colors.secondary)
 
             Spacer()
         }
@@ -29,6 +29,7 @@ struct LockScreenView: View {
             }
         }
         .accessibilityLabel(AccessibilityLabel.unlock)
+        .accessibilityHint(AccessibilityHint.unlock)
         .accessibilityIdentifier(AccessibilityID.unlockButton)
         .task {
             try? await biometricService.authenticate()

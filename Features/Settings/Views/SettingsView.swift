@@ -23,12 +23,14 @@ struct SettingsView: View {
             if biometricService.biometryType != .none {
                 Section("Security") {
                     Toggle(biometricLabel, isOn: $biometricService.isEnabled)
+                        .accessibilityLabel(AccessibilityLabel.biometricToggle)
                         .accessibilityIdentifier(AccessibilityID.biometricToggle)
                 }
             }
 
             Section("Preferences") {
                 Toggle("Haptic Feedback", isOn: $hapticEnabled)
+                    .accessibilityLabel(AccessibilityLabel.hapticToggle)
                     .accessibilityIdentifier(AccessibilityID.hapticToggle)
 
                 Picker("Theme", selection: $selectedTheme) {
@@ -36,6 +38,7 @@ struct SettingsView: View {
                         Text(theme.displayName).tag(theme)
                     }
                 }
+                .accessibilityLabel(AccessibilityLabel.themeSelector)
                 .accessibilityIdentifier(AccessibilityID.settingsThemePicker)
             }
 
@@ -46,12 +49,18 @@ struct SettingsView: View {
                 ) {
                     Label("Export Vault", systemImage: "square.and.arrow.up")
                 }
+                .accessibilityLabel(AccessibilityLabel.exportVault)
+                .accessibilityHint(AccessibilityHint.exportVault)
+                .accessibilityIdentifier(AccessibilityID.settingsExportButton)
 
                 Button {
                     showImporter = true
                 } label: {
                     Label("Import Vault", systemImage: "square.and.arrow.down")
                 }
+                .accessibilityLabel(AccessibilityLabel.importVault)
+                .accessibilityHint(AccessibilityHint.importVault)
+                .accessibilityIdentifier(AccessibilityID.settingsImportButton)
             }
 
             Section("About") {

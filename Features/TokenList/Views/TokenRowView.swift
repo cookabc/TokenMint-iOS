@@ -38,7 +38,7 @@ struct TokenRowView: View {
             HStack(spacing: DesignTokens.Spacing.xs) {
                 if token.isPinned {
                     Image(systemName: "pin.fill")
-                        .font(.caption2)
+                        .font(DesignTokens.Size.pinIcon)
                         .foregroundStyle(DesignTokens.Colors.accent)
                 }
                 Text(token.issuer)
@@ -77,12 +77,12 @@ struct TokenRowView: View {
             // Countdown ring
             ZStack {
                 Circle()
-                    .stroke(DesignTokens.Colors.tertiary.opacity(0.3), lineWidth: 3)
+                    .stroke(DesignTokens.Colors.tertiary.opacity(0.3), lineWidth: DesignTokens.Size.ringStroke)
                 Circle()
                     .trim(from: 0, to: 1 - progress)
                     .stroke(
                         remaining <= 5 ? DesignTokens.Colors.countdownUrgent : DesignTokens.Colors.countdown,
-                        style: StrokeStyle(lineWidth: 3, lineCap: .round)
+                        style: StrokeStyle(lineWidth: DesignTokens.Size.ringStroke, lineCap: .round)
                     )
                     .rotationEffect(.degrees(-90))
                 Text("\(remaining)")
@@ -90,7 +90,7 @@ struct TokenRowView: View {
                     .contentTransition(.numericText())
                     .foregroundStyle(DesignTokens.Colors.secondary)
             }
-            .frame(width: 32, height: 32)
+            .frame(width: DesignTokens.Size.countdownRing, height: DesignTokens.Size.countdownRing)
             .accessibilityIdentifier(AccessibilityID.countdownRing)
             .symbolEffect(.bounce, value: bouncing)
         }
@@ -106,12 +106,12 @@ struct TokenRowView: View {
 
     private func startTimer() {
         updateCode()
-        // Use a continuous timer for smooth updates
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            Task { @MainActor in
+        // Use structured concurrency instead of Timer.scheduledTimer
+        Task { @MainActor in
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(1))
                 let oldRemaining = remaining
                 updateCode()
-                // Bounce when period resets
                 if remaining > oldRemaining {
                     bouncing.toggle()
                 }

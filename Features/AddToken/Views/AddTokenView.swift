@@ -62,6 +62,8 @@ struct AddTokenView: View {
                     }
                 }
                 .disabled(!isValid)
+                .accessibilityLabel(AccessibilityLabel.saveToken)
+                .accessibilityHint(AccessibilityHint.saveToken)
                 .accessibilityIdentifier(AccessibilityID.saveTokenButton)
             }
         }

@@ -64,7 +64,7 @@ struct ScannerView: View {
                 Spacer()
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundStyle(DesignTokens.Colors.success)
-                    .font(.title2)
+                    .font(DesignTokens.Size.successIcon)
             }
 
             HStack(spacing: DesignTokens.Spacing.md) {
@@ -75,6 +75,8 @@ struct ScannerView: View {
                     }
                 }
                 .buttonStyle(.borderedProminent)
+                .accessibilityLabel(AccessibilityLabel.addTokenManual)
+                .accessibilityHint(AccessibilityHint.saveToken)
                 .accessibilityIdentifier(AccessibilityID.saveTokenButton)
 
                 Button("Scan Again") {
@@ -84,6 +86,8 @@ struct ScannerView: View {
                     }
                 }
                 .buttonStyle(.bordered)
+                .accessibilityLabel(AccessibilityLabel.scanAgain)
+                .accessibilityHint(AccessibilityHint.scanAgain)
             }
         }
         .padding(DesignTokens.Spacing.md)
