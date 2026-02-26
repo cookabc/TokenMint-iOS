@@ -31,6 +31,7 @@
 		9FA95008792FE380DB50BFB1 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B500EAB88E34C4874F392 /* Accessibility.swift */; };
 		ADC00BA9905E56F435ED671C /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23710591D90478AF508391 /* BiometricService.swift */; };
 		AEB29C8DCDFF1941CB09BB56 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC90AA3A635B47859B39054 /* Token.swift */; };
+		CE479524EB028CB412558BB2 /* TokenRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F26CF777FDF76CCF9834FA /* TokenRowView.swift */; };
 		D898BF3346CA2845B72380C0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 303EC7B0EE24A62217B68E4C /* PrivacyInfo.xcprivacy */; };
 		DC3FD86F8984C7A14302AF3A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119EE9846F715A55A4E966CE /* Logger.swift */; };
 		E0B91534D0D7D94056C35390 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49904A77D8C8D752A6D0870 /* SettingsView.swift */; };
@@ -73,6 +74,7 @@
 		303EC7B0EE24A62217B68E4C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3109FFAE0285E6027A7088B3 /* AddTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenView.swift; sourceTree = "<group>"; };
 		3121BEC479B8F16DEFF4C88F /* TokenMintTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TokenMintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32F26CF777FDF76CCF9834FA /* TokenRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRowView.swift; sourceTree = "<group>"; };
 		417E3F9DFB4FB685799FF6CE /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		4C2551E5612475487B4429A8 /* TOTPServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPServiceTests.swift; sourceTree = "<group>"; };
 		55FC7FF78B32649A83F0A923 /* VaultServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultServiceProtocol.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				68635E6223CDDD001BE7D615 /* TokenListView.swift */,
+				32F26CF777FDF76CCF9834FA /* TokenRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,7 +341,7 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		"TEMP_3762B66D-029C-42C6-9476-F3039816A9D1" /* Scanner */ = {
+		"TEMP_DCC2F010-B554-42DF-8910-479EC159BD2B" /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -486,6 +489,7 @@
 				AEB29C8DCDFF1941CB09BB56 /* Token.swift in Sources */,
 				1971AA585D3B3118F7673CB0 /* TokenListView.swift in Sources */,
 				78E6423F31E9FA8F4EDB3212 /* TokenMintApp.swift in Sources */,
+				CE479524EB028CB412558BB2 /* TokenRowView.swift in Sources */,
 				6FBEA7250C25B1C8AA14D91D /* VaultRepository.swift in Sources */,
 				FD974E554A4CFED8D7E0A9BB /* VaultRepositoryProtocol.swift in Sources */,
 				368E49D322029561BEA66585 /* VaultService.swift in Sources */,
