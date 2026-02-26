@@ -6,133 +6,602 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1971AA585D3B3118F7673CB0 /* TokenListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68635E6223CDDD001BE7D615 /* TokenListView.swift */; };
+		19C788E07DBFE0C6F5E238D6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1C78064D6A0507E81BCA287D /* Localizable.xcstrings */; };
+		349A282614277A10C652449D /* TOTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000A0637EE6645330682815 /* TOTPService.swift */; };
+		368E49D322029561BEA66585 /* VaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABFF606AF0316FA1528D62 /* VaultService.swift */; };
+		37BAD5B4B2ACB902A2171135 /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C681B454DABE72C61969A2 /* DesignTokens.swift */; };
+		3E4061B3EBDB7DCC7382677F /* HapticServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80DC6681155A01C1347302 /* HapticServiceProtocol.swift */; };
+		44E3AC6428530F44C838C863 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1023E60B833AFC8F7207001 /* ViewState.swift */; };
+		482077ECE3F3B60E97CF2042 /* TOTPServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2551E5612475487B4429A8 /* TOTPServiceTests.swift */; };
+		573371E900312A98D2C6B274 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67182F999E02C72B3AEF35F6 /* Router.swift */; };
+		6DB4A500611D1634205C63D5 /* AddTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3109FFAE0285E6027A7088B3 /* AddTokenView.swift */; };
+		6E2B13C4CB2FD1DB4B794314 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61DBB35975F647603C4454 /* Color+Extensions.swift */; };
+		6FBEA7250C25B1C8AA14D91D /* VaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF97BBDACC2EACA5AA25793 /* VaultRepository.swift */; };
+		71121E632EBCF32EEB863CD0 /* LockScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BD518050FD986CB363FF5 /* LockScreenView.swift */; };
+		78E6423F31E9FA8F4EDB3212 /* TokenMintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1434AA6224CB74EB58C11C32 /* TokenMintApp.swift */; };
+		7BD759004136D450DDD6DE82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3009DAAF968D826007F06ADE /* Assets.xcassets */; };
+		7CF18B204172FAFB7498B136 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C688D6D346900E993E081436 /* AppError.swift */; };
+		7EE6ED5D36C3E87A99F86CF9 /* VaultServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FC7FF78B32649A83F0A923 /* VaultServiceProtocol.swift */; };
+		8BBE53F66EFB3B66C2096810 /* KeychainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB211722109861EEA0A807D /* KeychainServiceProtocol.swift */; };
+		8E4606F85D864E0CBC89143F /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417E3F9DFB4FB685799FF6CE /* KeychainService.swift */; };
+		8E921C46B59409EFBA558036 /* HapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2017DEA0458120A1BC4D69B /* HapticService.swift */; };
+		9914265067B027A20C96F115 /* AppThemeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2457CA2D802A91D2B2616E /* AppThemeOption.swift */; };
+		9FA95008792FE380DB50BFB1 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B500EAB88E34C4874F392 /* Accessibility.swift */; };
+		ADC00BA9905E56F435ED671C /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC23710591D90478AF508391 /* BiometricService.swift */; };
+		AEB29C8DCDFF1941CB09BB56 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC90AA3A635B47859B39054 /* Token.swift */; };
+		D898BF3346CA2845B72380C0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 303EC7B0EE24A62217B68E4C /* PrivacyInfo.xcprivacy */; };
+		DC3FD86F8984C7A14302AF3A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119EE9846F715A55A4E966CE /* Logger.swift */; };
+		E0B91534D0D7D94056C35390 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49904A77D8C8D752A6D0870 /* SettingsView.swift */; };
+		F05B2119EBE73AC388AFB72E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA480FEA477356F80EBC3F /* View+Extensions.swift */; };
+		F077DC5B202C11FF0209D266 /* AnimationTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66133449E6B6D640DA8AEC04 /* AnimationTokens.swift */; };
+		F2D534D3954C51BE89D180C3 /* HapticTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC516F78942F240005E62693 /* HapticTokens.swift */; };
+		F630FFADC15B32EF672F6484 /* TokenMintUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AFD09BC3AFE8A6A01BD5DE /* TokenMintUITests.swift */; };
+		FD974E554A4CFED8D7E0A9BB /* VaultRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8182B3E020BB76B021C6EB7D /* VaultRepositoryProtocol.swift */; };
+		FDC8C5A42C8695A4C4167689 /* BiometricServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6954DF33FDD756CBD33FF9A0 /* BiometricServiceProtocol.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C5A77F8BCF69E22E19133D9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55CC8DFFFF5B1DC73391E3F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A9DC1A03E22E46EDCDB9AF0;
+			remoteInfo = TokenMint;
+		};
+		F2BC1E22D570E7F7A644FFE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55CC8DFFFF5B1DC73391E3F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A9DC1A03E22E46EDCDB9AF0;
+			remoteInfo = TokenMint;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		E174DB7B2F35FCEA00635DA3 /* TokenMint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokenMint.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0000A0637EE6645330682815 /* TOTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPService.swift; sourceTree = "<group>"; };
+		069EA799A70B02E0B2E40D52 /* TokenMint.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TokenMint.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07AFD09BC3AFE8A6A01BD5DE /* TokenMintUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMintUITests.swift; sourceTree = "<group>"; };
+		119EE9846F715A55A4E966CE /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		12C681B454DABE72C61969A2 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
+		1434AA6224CB74EB58C11C32 /* TokenMintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMintApp.swift; sourceTree = "<group>"; };
+		1BB211722109861EEA0A807D /* KeychainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProtocol.swift; sourceTree = "<group>"; };
+		1C78064D6A0507E81BCA287D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		3009DAAF968D826007F06ADE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		303EC7B0EE24A62217B68E4C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		3109FFAE0285E6027A7088B3 /* AddTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenView.swift; sourceTree = "<group>"; };
+		3121BEC479B8F16DEFF4C88F /* TokenMintTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TokenMintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		417E3F9DFB4FB685799FF6CE /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		4C2551E5612475487B4429A8 /* TOTPServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPServiceTests.swift; sourceTree = "<group>"; };
+		55FC7FF78B32649A83F0A923 /* VaultServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultServiceProtocol.swift; sourceTree = "<group>"; };
+		66133449E6B6D640DA8AEC04 /* AnimationTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTokens.swift; sourceTree = "<group>"; };
+		67182F999E02C72B3AEF35F6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		68635E6223CDDD001BE7D615 /* TokenListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListView.swift; sourceTree = "<group>"; };
+		6954DF33FDD756CBD33FF9A0 /* BiometricServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricServiceProtocol.swift; sourceTree = "<group>"; };
+		7BC90AA3A635B47859B39054 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		8182B3E020BB76B021C6EB7D /* VaultRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepositoryProtocol.swift; sourceTree = "<group>"; };
+		83CA480FEA477356F80EBC3F /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		90ABFF606AF0316FA1528D62 /* VaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultService.swift; sourceTree = "<group>"; };
+		A61BD518050FD986CB363FF5 /* LockScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenView.swift; sourceTree = "<group>"; };
+		AEF97BBDACC2EACA5AA25793 /* VaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepository.swift; sourceTree = "<group>"; };
+		BC516F78942F240005E62693 /* HapticTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticTokens.swift; sourceTree = "<group>"; };
+		C29A22A2B24AFED7FBBBE7F2 /* TokenMintUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TokenMintUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C688D6D346900E993E081436 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		CE3B500EAB88E34C4874F392 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
+		D1023E60B833AFC8F7207001 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		DD80DC6681155A01C1347302 /* HapticServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticServiceProtocol.swift; sourceTree = "<group>"; };
+		E2017DEA0458120A1BC4D69B /* HapticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticService.swift; sourceTree = "<group>"; };
+		E49904A77D8C8D752A6D0870 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EC23710591D90478AF508391 /* BiometricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
+		ED2457CA2D802A91D2B2616E /* AppThemeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeOption.swift; sourceTree = "<group>"; };
+		EE61DBB35975F647603C4454 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		E174DB7D2F35FCEA00635DA3 /* TokenMint */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TokenMint;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		E174DB782F35FCEA00635DA3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
-		E174DB722F35FCEA00635DA3 = {
+		0902322FD1CC1BFE568277BF /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				E174DB7D2F35FCEA00635DA3 /* TokenMint */,
-				E174DB7C2F35FCEA00635DA3 /* Products */,
+				4C2551E5612475487B4429A8 /* TOTPServiceTests.swift */,
+			);
+			name = UnitTests;
+			path = Tests/UnitTests;
+			sourceTree = "<group>";
+		};
+		0E7521298009909A8D75BF6B /* TokenList */ = {
+			isa = PBXGroup;
+			children = (
+				1F8BF569A60C1F095D2E34C4 /* Views */,
+			);
+			path = TokenList;
+			sourceTree = "<group>";
+		};
+		14A001590E371B947C5149F3 = {
+			isa = PBXGroup;
+			children = (
+				A87F76E8B206C48367B364D6 /* App */,
+				1D0E51DC2E56F9E28CB0D931 /* Core */,
+				DBFAC76BF7C0E3D9601C9C5A /* Features */,
+				B6A8C944ED57BEC06C55FD2A /* IntegrationTests */,
+				5620973CBF1D6081D61CADB7 /* Resources */,
+				BD20EFC7392E1ADBCFAE6D01 /* UITests */,
+				0902322FD1CC1BFE568277BF /* UnitTests */,
+				9C83ECABB17F79FB7033F8B9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E174DB7C2F35FCEA00635DA3 /* Products */ = {
+		1D0E51DC2E56F9E28CB0D931 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				E174DB7B2F35FCEA00635DA3 /* TokenMint.app */,
+				76D5CB0D5DFFE3D7480BA31A /* Constants */,
+				65EC40F6E8286E7B5E8D2460 /* Extensions */,
+				60181B83E0E1CA2507B30008 /* Models */,
+				470BFCA6E464251E24B977C0 /* Navigation */,
+				AECF3D01406857C6A75AE920 /* Protocols */,
+				C82E01B6619CED13A225D09D /* Repositories */,
+				8A5CD1A7E17986EBE706238B /* Services */,
+				80D207D3243D7A1868314A73 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1F8BF569A60C1F095D2E34C4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				68635E6223CDDD001BE7D615 /* TokenListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		470BFCA6E464251E24B977C0 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				67182F999E02C72B3AEF35F6 /* Router.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		5620973CBF1D6081D61CADB7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C78064D6A0507E81BCA287D /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5B6B47A3DE5C58A15652F0B7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B0AA4039CB9E999600256460 /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		60181B83E0E1CA2507B30008 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7BC90AA3A635B47859B39054 /* Token.swift */,
+				0000A0637EE6645330682815 /* TOTPService.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		65EC40F6E8286E7B5E8D2460 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EE61DBB35975F647603C4454 /* Color+Extensions.swift */,
+				83CA480FEA477356F80EBC3F /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		76D5CB0D5DFFE3D7480BA31A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				66133449E6B6D640DA8AEC04 /* AnimationTokens.swift */,
+				12C681B454DABE72C61969A2 /* DesignTokens.swift */,
+				BC516F78942F240005E62693 /* HapticTokens.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		80D207D3243D7A1868314A73 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CE3B500EAB88E34C4874F392 /* Accessibility.swift */,
+				C688D6D346900E993E081436 /* AppError.swift */,
+				ED2457CA2D802A91D2B2616E /* AppThemeOption.swift */,
+				119EE9846F715A55A4E966CE /* Logger.swift */,
+				D1023E60B833AFC8F7207001 /* ViewState.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A5CD1A7E17986EBE706238B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EC23710591D90478AF508391 /* BiometricService.swift */,
+				E2017DEA0458120A1BC4D69B /* HapticService.swift */,
+				417E3F9DFB4FB685799FF6CE /* KeychainService.swift */,
+				90ABFF606AF0316FA1528D62 /* VaultService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9C83ECABB17F79FB7033F8B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				069EA799A70B02E0B2E40D52 /* TokenMint.app */,
+				3121BEC479B8F16DEFF4C88F /* TokenMintTests.xctest */,
+				C29A22A2B24AFED7FBBBE7F2 /* TokenMintUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9D24F75FD35FC85D51A2DA26 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3109FFAE0285E6027A7088B3 /* AddTokenView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A2BCE8517AECD4E4E572C4D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A61BD518050FD986CB363FF5 /* LockScreenView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A87F76E8B206C48367B364D6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3009DAAF968D826007F06ADE /* Assets.xcassets */,
+				303EC7B0EE24A62217B68E4C /* PrivacyInfo.xcprivacy */,
+				1434AA6224CB74EB58C11C32 /* TokenMintApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AECF3D01406857C6A75AE920 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6954DF33FDD756CBD33FF9A0 /* BiometricServiceProtocol.swift */,
+				DD80DC6681155A01C1347302 /* HapticServiceProtocol.swift */,
+				1BB211722109861EEA0A807D /* KeychainServiceProtocol.swift */,
+				8182B3E020BB76B021C6EB7D /* VaultRepositoryProtocol.swift */,
+				55FC7FF78B32649A83F0A923 /* VaultServiceProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B0AA4039CB9E999600256460 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E49904A77D8C8D752A6D0870 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B43EAAE393BA19AFA755A7E9 /* LockScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A2BCE8517AECD4E4E572C4D9 /* Views */,
+			);
+			path = LockScreen;
+			sourceTree = "<group>";
+		};
+		B6A8C944ED57BEC06C55FD2A /* IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = IntegrationTests;
+			path = Tests/IntegrationTests;
+			sourceTree = "<group>";
+		};
+		BD20EFC7392E1ADBCFAE6D01 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				07AFD09BC3AFE8A6A01BD5DE /* TokenMintUITests.swift */,
+			);
+			name = UITests;
+			path = Tests/UITests;
+			sourceTree = "<group>";
+		};
+		C56D321483A6C7D03266E091 /* AddToken */ = {
+			isa = PBXGroup;
+			children = (
+				9D24F75FD35FC85D51A2DA26 /* Views */,
+			);
+			path = AddToken;
+			sourceTree = "<group>";
+		};
+		C82E01B6619CED13A225D09D /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				AEF97BBDACC2EACA5AA25793 /* VaultRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		DBFAC76BF7C0E3D9601C9C5A /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C56D321483A6C7D03266E091 /* AddToken */,
+				B43EAAE393BA19AFA755A7E9 /* LockScreen */,
+				5B6B47A3DE5C58A15652F0B7 /* Settings */,
+				0E7521298009909A8D75BF6B /* TokenList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		"TEMP_48173A31-658C-4439-9A6F-AEB35827E99F" /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E174DB7A2F35FCEA00635DA3 /* TokenMint */ = {
+		1A9DC1A03E22E46EDCDB9AF0 /* TokenMint */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E174DB862F35FCEB00635DA3 /* Build configuration list for PBXNativeTarget "TokenMint" */;
+			buildConfigurationList = FD2154F4CD1FFE32FE828F92 /* Build configuration list for PBXNativeTarget "TokenMint" */;
 			buildPhases = (
-				E174DB772F35FCEA00635DA3 /* Sources */,
-				E174DB782F35FCEA00635DA3 /* Frameworks */,
-				E174DB792F35FCEA00635DA3 /* Resources */,
+				44B92F2201B4E48FB05971E8 /* Sources */,
+				9E839F4904409A6E8BFC950A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				E174DB7D2F35FCEA00635DA3 /* TokenMint */,
-			);
 			name = TokenMint;
 			packageProductDependencies = (
 			);
 			productName = TokenMint;
-			productReference = E174DB7B2F35FCEA00635DA3 /* TokenMint.app */;
+			productReference = 069EA799A70B02E0B2E40D52 /* TokenMint.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A5364E973807A7D653ACA513 /* TokenMintUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A656891AC3856879F26D7214 /* Build configuration list for PBXNativeTarget "TokenMintUITests" */;
+			buildPhases = (
+				F9ADDAE90C7AF431F18684BE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD678F057DA1E502C6E6E804 /* PBXTargetDependency */,
+			);
+			name = TokenMintUITests;
+			packageProductDependencies = (
+			);
+			productName = TokenMintUITests;
+			productReference = C29A22A2B24AFED7FBBBE7F2 /* TokenMintUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		F9A373645BD2482779283DF4 /* TokenMintTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F726BF715971F03A9AC2FF6C /* Build configuration list for PBXNativeTarget "TokenMintTests" */;
+			buildPhases = (
+				10B5A404456EA34131AF0134 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F8F363675B379A2C5E58D28 /* PBXTargetDependency */,
+			);
+			name = TokenMintTests;
+			packageProductDependencies = (
+			);
+			productName = TokenMintTests;
+			productReference = 3121BEC479B8F16DEFF4C88F /* TokenMintTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E174DB732F35FCEA00635DA3 /* Project object */ = {
+		55CC8DFFFF5B1DC73391E3F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2620;
-				LastUpgradeCheck = 2620;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					E174DB7A2F35FCEA00635DA3 = {
-						CreatedOnToolsVersion = 26.2;
+					A5364E973807A7D653ACA513 = {
+						TestTargetID = 1A9DC1A03E22E46EDCDB9AF0;
 					};
 				};
 			};
-			buildConfigurationList = E174DB762F35FCEA00635DA3 /* Build configuration list for PBXProject "TokenMint" */;
+			buildConfigurationList = E2ACAC3873512E19A7A17006 /* Build configuration list for PBXProject "TokenMint" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
+				"zh-Hans",
 			);
-			mainGroup = E174DB722F35FCEA00635DA3;
+			mainGroup = 14A001590E371B947C5149F3;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = E174DB7C2F35FCEA00635DA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E174DB7A2F35FCEA00635DA3 /* TokenMint */,
+				1A9DC1A03E22E46EDCDB9AF0 /* TokenMint */,
+				F9A373645BD2482779283DF4 /* TokenMintTests */,
+				A5364E973807A7D653ACA513 /* TokenMintUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E174DB792F35FCEA00635DA3 /* Resources */ = {
+		9E839F4904409A6E8BFC950A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BD759004136D450DDD6DE82 /* Assets.xcassets in Resources */,
+				19C788E07DBFE0C6F5E238D6 /* Localizable.xcstrings in Resources */,
+				D898BF3346CA2845B72380C0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E174DB772F35FCEA00635DA3 /* Sources */ = {
+		10B5A404456EA34131AF0134 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482077ECE3F3B60E97CF2042 /* TOTPServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44B92F2201B4E48FB05971E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FA95008792FE380DB50BFB1 /* Accessibility.swift in Sources */,
+				6DB4A500611D1634205C63D5 /* AddTokenView.swift in Sources */,
+				F077DC5B202C11FF0209D266 /* AnimationTokens.swift in Sources */,
+				7CF18B204172FAFB7498B136 /* AppError.swift in Sources */,
+				9914265067B027A20C96F115 /* AppThemeOption.swift in Sources */,
+				ADC00BA9905E56F435ED671C /* BiometricService.swift in Sources */,
+				FDC8C5A42C8695A4C4167689 /* BiometricServiceProtocol.swift in Sources */,
+				6E2B13C4CB2FD1DB4B794314 /* Color+Extensions.swift in Sources */,
+				37BAD5B4B2ACB902A2171135 /* DesignTokens.swift in Sources */,
+				8E921C46B59409EFBA558036 /* HapticService.swift in Sources */,
+				3E4061B3EBDB7DCC7382677F /* HapticServiceProtocol.swift in Sources */,
+				F2D534D3954C51BE89D180C3 /* HapticTokens.swift in Sources */,
+				8E4606F85D864E0CBC89143F /* KeychainService.swift in Sources */,
+				8BBE53F66EFB3B66C2096810 /* KeychainServiceProtocol.swift in Sources */,
+				71121E632EBCF32EEB863CD0 /* LockScreenView.swift in Sources */,
+				DC3FD86F8984C7A14302AF3A /* Logger.swift in Sources */,
+				573371E900312A98D2C6B274 /* Router.swift in Sources */,
+				E0B91534D0D7D94056C35390 /* SettingsView.swift in Sources */,
+				349A282614277A10C652449D /* TOTPService.swift in Sources */,
+				AEB29C8DCDFF1941CB09BB56 /* Token.swift in Sources */,
+				1971AA585D3B3118F7673CB0 /* TokenListView.swift in Sources */,
+				78E6423F31E9FA8F4EDB3212 /* TokenMintApp.swift in Sources */,
+				6FBEA7250C25B1C8AA14D91D /* VaultRepository.swift in Sources */,
+				FD974E554A4CFED8D7E0A9BB /* VaultRepositoryProtocol.swift in Sources */,
+				368E49D322029561BEA66585 /* VaultService.swift in Sources */,
+				7EE6ED5D36C3E87A99F86CF9 /* VaultServiceProtocol.swift in Sources */,
+				F05B2119EBE73AC388AFB72E /* View+Extensions.swift in Sources */,
+				44E3AC6428530F44C838C863 /* ViewState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9ADDAE90C7AF431F18684BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F630FFADC15B32EF672F6484 /* TokenMintUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8F8F363675B379A2C5E58D28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A9DC1A03E22E46EDCDB9AF0 /* TokenMint */;
+			targetProxy = F2BC1E22D570E7F7A644FFE4 /* PBXContainerItemProxy */;
+		};
+		DD678F057DA1E502C6E6E804 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A9DC1A03E22E46EDCDB9AF0 /* TokenMint */;
+			targetProxy = C5A77F8BCF69E22E19133D9D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		E174DB842F35FCEB00635DA3 /* Debug */ = {
+		11FE4B7624C60EFA24297977 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuangcius.tokenMint.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TokenMint;
+			};
+			name = Release;
+		};
+		3BCC0A3C81437F35E4F5A982 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuangcius.tokenMint.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TokenMint.app/TokenMint";
+			};
+			name = Debug;
+		};
+		6149B6703F4D82CF91F2B4D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TokenMint;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed to scan QR codes for adding tokens";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID is used to protect your vault";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuangcius.tokenMint;
+				PRODUCT_NAME = TokenMint;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		818DF5FA540A27D6A1AA0425 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuangcius.tokenMint.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TokenMint;
+			};
+			name = Debug;
+		};
+		8CB5C1405B5FCAEDF98C41EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -162,14 +631,13 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -177,25 +645,26 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		E174DB852F35FCEB00635DA3 /* Release */ = {
+		B3FFB28470BEADDE52594E23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -225,8 +694,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -234,76 +702,56 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				VALIDATE_PRODUCT = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		E174DB872F35FCEB00635DA3 /* Debug */ = {
+		C06453A28E65797F63F08F4C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = TokenMint;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cookabc.TokenMint;
-				PRODUCT_NAME = TokenMint;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuangcius.tokenMint.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TokenMint.app/TokenMint";
 			};
-			name = Debug;
+			name = Release;
 		};
-		E174DB882F35FCEB00635DA3 /* Release */ = {
+		C202C9823D9B6C288023659E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = TokenMint;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed to scan QR codes for adding tokens";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID is used to protect your vault";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cookabc.TokenMint;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuangcius.tokenMint;
 				PRODUCT_NAME = TokenMint;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -311,25 +759,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E174DB762F35FCEA00635DA3 /* Build configuration list for PBXProject "TokenMint" */ = {
+		A656891AC3856879F26D7214 /* Build configuration list for PBXNativeTarget "TokenMintUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E174DB842F35FCEB00635DA3 /* Debug */,
-				E174DB852F35FCEB00635DA3 /* Release */,
+				818DF5FA540A27D6A1AA0425 /* Debug */,
+				11FE4B7624C60EFA24297977 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E174DB862F35FCEB00635DA3 /* Build configuration list for PBXNativeTarget "TokenMint" */ = {
+		E2ACAC3873512E19A7A17006 /* Build configuration list for PBXProject "TokenMint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E174DB872F35FCEB00635DA3 /* Debug */,
-				E174DB882F35FCEB00635DA3 /* Release */,
+				8CB5C1405B5FCAEDF98C41EA /* Debug */,
+				B3FFB28470BEADDE52594E23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F726BF715971F03A9AC2FF6C /* Build configuration list for PBXNativeTarget "TokenMintTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BCC0A3C81437F35E4F5A982 /* Debug */,
+				C06453A28E65797F63F08F4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD2154F4CD1FFE32FE828F92 /* Build configuration list for PBXNativeTarget "TokenMint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6149B6703F4D82CF91F2B4D0 /* Debug */,
+				C202C9823D9B6C288023659E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E174DB732F35FCEA00635DA3 /* Project object */;
+	rootObject = 55CC8DFFFF5B1DC73391E3F3 /* Project object */;
 }
