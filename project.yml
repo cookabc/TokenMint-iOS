@@ -43,6 +43,7 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.chuangcius.tokenMint.tests
+        GENERATE_INFOPLIST_FILE: YES
         SWIFT_VERSION: "6.2"
         SWIFT_STRICT_CONCURRENCY: complete
 
@@ -56,4 +57,5 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.chuangcius.tokenMint.uitests
+        GENERATE_INFOPLIST_FILE: YES
         SWIFT_VERSION: "6.2"
