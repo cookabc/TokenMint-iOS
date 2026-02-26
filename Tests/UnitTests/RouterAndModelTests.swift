@@ -1,5 +1,5 @@
-import Testing
 import Foundation
+import Testing
 @testable import TokenMint
 
 @Suite("Router Tests")
@@ -72,9 +72,9 @@ struct TokenModelTests {
     func equatable() {
         let id = UUID()
         let now = Date()
-        let t1 = Token(id: id, issuer: "A", secret: "ABC", updatedAt: now)
-        let t2 = Token(id: id, issuer: "A", secret: "ABC", updatedAt: now)
-        #expect(t1 == t2)
+        let token1 = Token(id: id, issuer: "A", secret: "ABC", updatedAt: now)
+        let token2 = Token(id: id, issuer: "A", secret: "ABC", updatedAt: now)
+        #expect(token1 == token2)
     }
 
     @Test("Token JSON round-trip")

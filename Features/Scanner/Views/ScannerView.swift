@@ -50,9 +50,9 @@ struct ScannerView: View {
     // MARK: - Scanned Token Card
 
     private func scannedTokenCard(_ token: Token) -> some View {
-        VStack(spacing: DesignTokens.Spacing.md) {
+        VStack(spacing: DesignTokens.Spacing.medium) {
             HStack {
-                VStack(alignment: .leading, spacing: DesignTokens.Spacing.xs) {
+                VStack(alignment: .leading, spacing: DesignTokens.Spacing.extraSmall) {
                     Text(token.issuer)
                         .font(DesignTokens.Typography.headline)
                     if !token.account.isEmpty {
@@ -67,7 +67,7 @@ struct ScannerView: View {
                     .font(DesignTokens.Size.successIcon)
             }
 
-            HStack(spacing: DesignTokens.Spacing.md) {
+            HStack(spacing: DesignTokens.Spacing.medium) {
                 Button("Add Token") {
                     Task {
                         try? await vaultService.addToken(token)
@@ -90,7 +90,7 @@ struct ScannerView: View {
                 .accessibilityHint(AccessibilityHint.scanAgain)
             }
         }
-        .padding(DesignTokens.Spacing.md)
+        .padding(DesignTokens.Spacing.medium)
         .background(.regularMaterial)
         .clipShape(RoundedRectangle(cornerRadius: DesignTokens.Radius.large))
     }

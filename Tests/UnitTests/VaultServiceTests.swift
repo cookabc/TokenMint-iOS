@@ -1,5 +1,5 @@
-import Testing
 import Foundation
+import Testing
 @testable import TokenMint
 
 @Suite("VaultService Tests")

@@ -13,7 +13,7 @@ struct TokenRowView: View {
     @State private var bouncing = false
 
     var body: some View {
-        HStack(spacing: DesignTokens.Spacing.md) {
+        HStack(spacing: DesignTokens.Spacing.medium) {
             // Left: issuer icon + labels
             issuerSection
 
@@ -22,7 +22,7 @@ struct TokenRowView: View {
             // Right: TOTP code + countdown ring
             codeSection
         }
-        .padding(.vertical, DesignTokens.Spacing.sm)
+        .padding(.vertical, DesignTokens.Spacing.small)
         .contentShape(Rectangle())
         .onTapGesture { copyCode() }
         .task { startTimer() }
@@ -34,8 +34,8 @@ struct TokenRowView: View {
     // MARK: - Issuer Section
 
     private var issuerSection: some View {
-        VStack(alignment: .leading, spacing: DesignTokens.Spacing.xs) {
-            HStack(spacing: DesignTokens.Spacing.xs) {
+        VStack(alignment: .leading, spacing: DesignTokens.Spacing.extraSmall) {
+            HStack(spacing: DesignTokens.Spacing.extraSmall) {
                 if token.isPinned {
                     Image(systemName: "pin.fill")
                         .font(DesignTokens.Size.pinIcon)
@@ -57,7 +57,7 @@ struct TokenRowView: View {
     // MARK: - Code Section
 
     private var codeSection: some View {
-        HStack(spacing: DesignTokens.Spacing.sm) {
+        HStack(spacing: DesignTokens.Spacing.small) {
             // TOTP code
             VStack(alignment: .trailing, spacing: 2) {
                 Text(formattedCode)

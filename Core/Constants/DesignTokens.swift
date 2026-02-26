@@ -32,11 +32,11 @@ enum DesignTokens {
     // MARK: - Spacing
 
     enum Spacing {
-        static let xs: CGFloat = 4
-        static let sm: CGFloat = 8
-        static let md: CGFloat = 16
-        static let lg: CGFloat = 24
-        static let xl: CGFloat = 32
+        static let extraSmall: CGFloat = 4
+        static let small: CGFloat = 8
+        static let medium: CGFloat = 16
+        static let large: CGFloat = 24
+        static let extraLarge: CGFloat = 32
     }
 
     // MARK: - Radius

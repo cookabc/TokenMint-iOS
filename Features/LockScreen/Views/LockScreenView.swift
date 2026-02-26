@@ -4,7 +4,7 @@ struct LockScreenView: View {
     @Environment(BiometricService.self) private var biometricService
 
     var body: some View {
-        VStack(spacing: DesignTokens.Spacing.lg) {
+        VStack(spacing: DesignTokens.Spacing.large) {
             Spacer()
 
             Image(systemName: biometricIcon)

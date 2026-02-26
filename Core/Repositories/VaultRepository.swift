@@ -1,5 +1,5 @@
-import Foundation
 import CryptoKit
+import Foundation
 
 /// AES-256-GCM encrypted vault persistence backed by Keychain key storage.
 actor VaultRepository: VaultRepositoryProtocol {
@@ -11,7 +11,10 @@ actor VaultRepository: VaultRepositoryProtocol {
         self.keychain = keychain
         let appSupport = FileManager.default.urls(
             for: .applicationSupportDirectory, in: .userDomainMask
-        ).first!
+        ).first
+        guard let appSupport else {
+            fatalError("Application Support directory not found")
+        }
         let dir = appSupport.appendingPathComponent("TokenMint", isDirectory: true)
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         self.fileURL = dir.appendingPathComponent("vault.enc")

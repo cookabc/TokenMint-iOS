@@ -11,7 +11,7 @@ actor KeychainService: KeychainServiceProtocol {
             kSecAttrService as String: serviceIdentifier,
             kSecAttrAccount as String: account,
             kSecValueData as String: key,
-            kSecAttrAccessible as String: kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
+            kSecAttrAccessible as String: kSecAttrAccessibleWhenUnlockedThisDeviceOnly
         ]
 
         // Delete existing first
@@ -29,7 +29,7 @@ actor KeychainService: KeychainServiceProtocol {
             kSecAttrService as String: serviceIdentifier,
             kSecAttrAccount as String: account,
             kSecReturnData as String: true,
-            kSecMatchLimit as String: kSecMatchLimitOne,
+            kSecMatchLimit as String: kSecMatchLimitOne
         ]
 
         var result: AnyObject?
@@ -49,7 +49,7 @@ actor KeychainService: KeychainServiceProtocol {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: serviceIdentifier,
-            kSecAttrAccount as String: account,
+            kSecAttrAccount as String: account
         ]
 
         let status = SecItemDelete(query as CFDictionary)
