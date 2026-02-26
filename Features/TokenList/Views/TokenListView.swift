@@ -53,9 +53,13 @@ struct TokenListView: View {
                         Image(systemName: "gearshape")
                     }
                     .accessibilityIdentifier("settings_button")
+                    .accessibilityLabel(AccessibilityLabel.settings)
+                    .accessibilityHint(AccessibilityHint.settings)
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     EditButton()
+                        .accessibilityLabel(AccessibilityLabel.editList)
+                        .accessibilityIdentifier(AccessibilityID.editButton)
                 }
             }
             .environment(\.editMode, $editMode)
@@ -87,6 +91,7 @@ struct TokenListView: View {
                         } label: {
                             Label("Delete", systemImage: "trash")
                         }
+                        .accessibilityLabel(AccessibilityLabel.deleteToken)
                     }
                     .swipeActions(edge: .leading) {
                         Button {
@@ -98,6 +103,7 @@ struct TokenListView: View {
                             )
                         }
                         .tint(DesignTokens.Colors.accent)
+                        .accessibilityLabel(AccessibilityLabel.pinToken(token.isPinned))
                     }
                     .listRowBackground(Color.clear)
             }

@@ -26,20 +26,37 @@ enum AccessibilityID {
     static let biometricToggle = "biometric_toggle"
     static let hapticToggle = "haptic_toggle"
     static let settingsThemePicker = "settings_theme_picker"
+    static let settingsExportButton = "settings_export_button"
+    static let settingsImportButton = "settings_import_button"
+    static let settingsButton = "settings_button"
+    static let editButton = "edit_button"
 }
 
 /// Accessibility labels for VoiceOver.
 enum AccessibilityLabel {
     static let addToken = String(localized: "Add new token", comment: "Accessibility label")
     static let scanQR = String(localized: "Scan QR code", comment: "Accessibility label")
+    static let unlock = String(localized: "Tap to unlock", comment: "Accessibility label")
+    static let biometricToggle = String(localized: "Biometric unlock", comment: "Accessibility label")
+    static let hapticToggle = String(localized: "Haptic feedback", comment: "Accessibility label")
+    static let themeSelector = String(localized: "Theme", comment: "Accessibility label")
+    static let exportVault = String(localized: "Export vault", comment: "Accessibility label")
+    static let importVault = String(localized: "Import vault", comment: "Accessibility label")
+    static let saveToken = String(localized: "Save token", comment: "Accessibility label")
+    static let addTokenManual = String(localized: "Add manually", comment: "Accessibility label")
+    static let scanAgain = String(localized: "Scan again", comment: "Accessibility label")
+    static let settings = String(localized: "Settings", comment: "Accessibility label")
+    static let editList = String(localized: "Edit list", comment: "Accessibility label")
+    static let deleteToken = String(localized: "Delete token", comment: "Accessibility label")
+    static func pinToken(_ isPinned: Bool) -> String {
+        isPinned ? String(localized: "Unpin token") : String(localized: "Pin token")
+    }
     static func totpCode(_ code: String) -> String {
-        // Read digits individually for VoiceOver
         code.map(String.init).joined(separator: ", ")
     }
     static func copyToken(_ issuer: String) -> String {
         String(localized: "Copy code for \(issuer)", comment: "Accessibility label")
     }
-    static let unlock = String(localized: "Tap to unlock", comment: "Accessibility label")
 }
 
 /// Accessibility hints for VoiceOver.
@@ -49,5 +66,23 @@ enum AccessibilityHint {
     )
     static let addToken = String(
         localized: "Double tap to add a new authenticator token", comment: "Accessibility hint"
+    )
+    static let unlock = String(
+        localized: "Double tap to authenticate", comment: "Accessibility hint"
+    )
+    static let saveToken = String(
+        localized: "Double tap to save this token", comment: "Accessibility hint"
+    )
+    static let exportVault = String(
+        localized: "Double tap to export vault as JSON", comment: "Accessibility hint"
+    )
+    static let importVault = String(
+        localized: "Double tap to import vault from file", comment: "Accessibility hint"
+    )
+    static let scanAgain = String(
+        localized: "Double tap to scan another QR code", comment: "Accessibility hint"
+    )
+    static let settings = String(
+        localized: "Double tap to open settings", comment: "Accessibility hint"
     )
 }
