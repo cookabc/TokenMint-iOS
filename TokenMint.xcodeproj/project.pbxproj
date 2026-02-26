@@ -61,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		0000A0637EE6645330682815 /* TOTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPService.swift; sourceTree = "<group>"; };
+		00A1F60C369D41E56653E791 /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
 		069EA799A70B02E0B2E40D52 /* TokenMint.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TokenMint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07AFD09BC3AFE8A6A01BD5DE /* TokenMintUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMintUITests.swift; sourceTree = "<group>"; };
 		119EE9846F715A55A4E966CE /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -295,6 +296,7 @@
 		B6A8C944ED57BEC06C55FD2A /* IntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
+				00A1F60C369D41E56653E791 /* .gitkeep */,
 			);
 			name = IntegrationTests;
 			path = Tests/IntegrationTests;
@@ -336,7 +338,7 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		"TEMP_48173A31-658C-4439-9A6F-AEB35827E99F" /* Scanner */ = {
+		"TEMP_3762B66D-029C-42C6-9476-F3039816A9D1" /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -521,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,6 +585,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -717,6 +722,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
