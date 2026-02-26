@@ -1,38 +1,108 @@
-# TokenMint for iOS
+# TokenMint
 
-TokenMint is a clean and elegant TOTP authenticator, providing a native touch-first experience on iOS.
+A clean and elegant TOTP authenticator for iOS, providing a secure, touch-first two-factor authentication experience. Built with SwiftUI and Liquid Glass design.
 
-## Design Philosophy
-TokenMint iOS aims to provide a "Clean and Elegant" experience, mirroring the macOS version but adapted for touch interactions. The design focuses on readability, ease of access, and secure management of 2FA tokens.
+## Features
 
-## Features (Phase 1)
-*   🔐 **Secure Storage**: AES-256 (AES.GCM) encryption using iOS Keychain for key management.
-*   📱 **Native UI**: Built with SwiftUI for smooth performance.
-*   📋 **One-Tap Copy**: Quickly copy verification codes with haptic feedback.
-*   🔍 **Search**: Filter your accounts instantly.
-*   📝 **Manual Entry**: Add accounts by entering the secret key.
+- **AES-256-GCM Encryption** — tokens stored in encrypted vault with iOS Keychain key management
+- **Biometric Unlock** — Face ID / Touch ID with passcode fallback
+- **QR Code Scanning** — `DataScannerViewController` for instant account setup
+- **Manual Entry** — add tokens by entering secret key and account details
+- **One-Tap Copy** — tap to copy current TOTP code with haptic feedback
+- **Pin Favorites** — pin frequently used tokens to the top
+- **Search** — instant filtering across all accounts
+- **Import/Export** — JSON vault backup and restore
+- **Settings** — haptic toggle, theme selection, vault management
+- **Accessibility** — full VoiceOver support with labels, hints, and identifiers on all interactive elements
+- **Localization** — English and Simplified Chinese (`Localizable.xcstrings`)
+- **Privacy** — `PrivacyInfo.xcprivacy` declares all data usage
 
-## Architecture & Data Flow
-*   **MVVM Pattern**: Uses `VaultService` as the primary ViewModel.
-*   **Data Flow**:
-    1.  `TokenMintApp` initializes `VaultService`.
-    2.  `VaultService` decrypts `vault.enc` from Application Support.
-    3.  User actions update the vault, which auto-saves to disk.
+## Tech Stack
+
+| Item | Detail |
+|------|--------|
+| Language | Swift 6.2 (`SWIFT_STRICT_CONCURRENCY = complete`) |
+| UI | SwiftUI 7 (Liquid Glass) |
+| Target | iOS 26.0+ |
+| Persistence | AES-256-GCM encrypted file + iOS Keychain |
+| Architecture | MVVM — `@Observable @MainActor` ViewModels, protocol-based DI |
+| Concurrency | Structured Concurrency only (`Task.sleep` timer, no Combine) |
+| Testing | Swift Testing (unit) + XCTest (UI), 33 unit + 7 UI = **40 tests** |
+| Build System | XcodeGen (`project.yml` → `.xcodeproj`) |
+
+## Getting Started
+
+```bash
+# Generate Xcode project (requires XcodeGen)
+brew install xcodegen
+xcodegen generate
+
+# Open and run
+open TokenMint.xcodeproj
+# Select iPhone 17 Pro simulator → Cmd+R
+```
 
 ## Project Structure
-The source code is located in `TokenMint/`:
-*   `TokenMintApp.swift`: Application entry point and lifecycle.
-*   `Views/`: SwiftUI views and UI components.
-*   `Models/`: Shared data models (Token, Vault).
-*   `Services/`: Core business logic (TOTP, Vault, Keychain).
-*   `Utilities/`: Helpers and localization.
 
-## Requirements
-*   iOS 17.0+
-*   Xcode 16.0+
-*   Swift 5.0+
+```
+App/
+├── TokenMintApp.swift            # Entry point, VaultService initialization
+├── PrivacyInfo.xcprivacy
+└── Assets.xcassets/
 
-## Building
-1.  Open `TokenMint.xcodeproj` in Xcode.
-2.  Ensure all files are added to the target.
-3.  Build and Run on the iOS Simulator or Device.
+Core/
+├── Constants/
+│   ├── DesignTokens.swift        # Colors, fonts, spacing, sizes
+│   ├── AnimationTokens.swift     # Animation curves & durations
+│   └── HapticTokens.swift        # Haptic feedback types
+├── Extensions/
+│   ├── Color+Extensions.swift
+│   └── View+Extensions.swift
+├── Models/
+│   ├── Token.swift               # TOTP token model (Sendable, Codable)
+│   └── TOTPService.swift         # RFC 6238 TOTP generation
+├── Navigation/
+│   └── Router.swift              # @Observable @MainActor Router
+├── Protocols/                    # VaultService, VaultRepository, Keychain, Biometric, Haptic
+├── Repositories/
+│   └── VaultRepository.swift     # Encrypted file I/O
+├── Services/
+│   ├── VaultService.swift        # Primary ViewModel — decrypt, manage, auto-save
+│   ├── KeychainService.swift     # iOS Keychain wrapper
+│   ├── BiometricService.swift    # Face ID / Touch ID
+│   └── HapticService.swift       # User-toggleable haptic feedback
+└── Utils/
+    ├── Accessibility.swift       # Label / Hint / Identifier enums
+    ├── AppError.swift            # Unified error enum
+    ├── ViewState.swift           # ViewState<T> generic
+    └── Logger.swift              # os.Logger wrapper
+
+Features/
+├── TokenList/                    # Token list, row with countdown ring, swipe actions
+├── AddToken/                     # Manual token entry form
+├── Scanner/                      # QR code scanning (DataScannerViewController)
+├── LockScreen/                   # Biometric / passcode lock
+└── Settings/                     # Preferences, import/export, vault management
+
+Resources/
+├── Localizable.xcstrings        # en + zh-Hans
+└── PreviewContent/
+
+Tests/
+├── UnitTests/                   # TOTPService, VaultService, Router & Model
+└── UITests/                     # Full flow UI tests
+```
+
+## Architecture Decisions
+
+- **No `@unchecked Sendable`** — all types properly Sendable or actor-isolated
+- **No singletons** — all services protocol-based with constructor injection
+- **No Combine** — `Task.sleep` for TOTP countdown timer, no `Timer.publish`
+- **No `DispatchQueue`** — pure Structured Concurrency
+- **No `NavigationView` / `@EnvironmentObject`** — `NavigationStack` + `@Environment`
+- **`DesignTokens.swift`** — zero inline magic numbers
+- **Encrypted vault** — SwiftData not used (no built-in encryption for TOTP secrets)
+
+## License
+
+Private
