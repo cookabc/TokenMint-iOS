@@ -38,7 +38,7 @@ struct TokenRowView: View {
             HStack(spacing: DesignTokens.Spacing.extraSmall) {
                 if token.isPinned {
                     Image(systemName: "pin.fill")
-                        .font(DesignTokens.Size.pinIcon)
+                        .font(DesignTokens.Typography.pinIcon)
                         .foregroundStyle(DesignTokens.Colors.accent)
                 }
                 Text(token.issuer)

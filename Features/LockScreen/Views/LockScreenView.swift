@@ -8,7 +8,7 @@ struct LockScreenView: View {
             Spacer()
 
             Image(systemName: biometricIcon)
-                .font(DesignTokens.Size.lockIcon)
+                .font(.system(size: DesignTokens.Size.lockIcon))
                 .foregroundStyle(DesignTokens.Colors.secondary)
                 .symbolEffect(.bounce, options: .repeating.speed(0.5))
 

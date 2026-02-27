@@ -64,7 +64,7 @@ struct ScannerView: View {
                 Spacer()
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundStyle(DesignTokens.Colors.success)
-                    .font(DesignTokens.Size.successIcon)
+                    .font(DesignTokens.Typography.successIcon)
             }
 
             HStack(spacing: DesignTokens.Spacing.medium) {
