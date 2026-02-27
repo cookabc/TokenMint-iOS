@@ -1,27 +1,23 @@
-import UIKit
+import SwiftUI
 
-/// Centralized haptic feedback service.
-@MainActor
-final class HapticService: HapticServiceProtocol {
-    private let impactLight = UIImpactFeedbackGenerator(style: .light)
-    private let impactMedium = UIImpactFeedbackGenerator(style: .medium)
-    private let selectionGenerator = UISelectionFeedbackGenerator()
-    private let notificationGenerator = UINotificationFeedbackGenerator()
+/// View modifier that fires `SensoryFeedback` when a trigger value changes,
+/// respecting the user's haptic-enabled preference.
+struct HapticFeedbackModifier: ViewModifier {
+    let token: HapticToken
+    let trigger: Int
+    @AppStorage("hapticEnabled") private var hapticEnabled = true
 
-    func play(_ token: HapticTokens) {
-        switch token {
-        case .buttonTap:
-            impactLight.impactOccurred()
-        case .selection:
-            selectionGenerator.selectionChanged()
-        case .success:
-            notificationGenerator.notificationOccurred(.success)
-        case .warning:
-            notificationGenerator.notificationOccurred(.warning)
-        case .error:
-            notificationGenerator.notificationOccurred(.error)
-        case .longPress:
-            impactMedium.impactOccurred()
-        }
+    func body(content: Content) -> some View {
+        content
+            .sensoryFeedback(token.feedback, trigger: trigger) { _, _ in
+                hapticEnabled
+            }
+    }
+}
+
+extension View {
+    /// Attach a haptic feedback that fires whenever `trigger` changes.
+    func hapticFeedback(_ token: HapticToken, trigger: some Equatable) -> some View {
+        self.sensoryFeedback(token.feedback, trigger: trigger)
     }
 }
