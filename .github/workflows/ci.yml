@@ -52,3 +52,10 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' \
             -enableCodeCoverage YES \
             -resultBundlePath TestResults.xcresult
+
+      - name: Coverage Gate
+        run: |
+          COVERAGE=$(xcrun xccov view --report --json TestResults.xcresult | \
+            python3 -c "import sys,json; print(round(json.load(sys.stdin)['lineCoverage']*100, 2))")
+          echo "Coverage: ${COVERAGE}%"
+          python3 -c "import sys; sys.exit(0 if float('${COVERAGE}') >= 50 else 1)"

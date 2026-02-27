@@ -20,13 +20,15 @@ enum DesignTokens {
     // MARK: - Typography
 
     enum Typography {
-        static let largeTitle = Font.system(size: 26, weight: .medium)
-        static let title = Font.system(size: 20, weight: .bold)
-        static let headline = Font.system(size: 17, weight: .semibold)
-        static let body = Font.system(size: 16, weight: .regular)
+        static let largeTitle: Font = .title.weight(.medium)
+        static let title: Font = .title3.weight(.bold)
+        static let headline: Font = .headline
+        static let body: Font = .body
         static let code = Font.system(size: 32, weight: .bold, design: .monospaced)
         static let codeSmall = Font.system(size: 24, weight: .semibold, design: .monospaced)
-        static let caption = Font.system(size: 12, weight: .medium)
+        static let caption: Font = .caption.weight(.medium)
+        static let successIcon: Font = .title2
+        static let pinIcon: Font = .caption2
     }
 
     // MARK: - Spacing
@@ -52,9 +54,7 @@ enum DesignTokens {
 
     enum Size {
         static let countdownRing: CGFloat = 32
-        static let lockIcon = Font.system(size: 64)
-        static let successIcon = Font.title2
-        static let pinIcon = Font.caption2
+        static let lockIcon: CGFloat = 64
         static let ringStroke: CGFloat = 3
     }
 }

@@ -37,4 +37,23 @@ enum AppError: LocalizedError, Sendable {
             String(localized: "An unexpected error occurred: \(msg)")
         }
     }
+
+    var recoverySuggestion: String? {
+        switch self {
+        case .vaultLoadFailed, .vaultSaveFailed:
+            String(localized: "Please restart the app. If the problem persists, reinstall.")
+        case .encryptionFailed, .decryptionFailed:
+            String(localized: "Re-authenticate and try again.")
+        case .keychainError:
+            String(localized: "Check device passcode settings and try again.")
+        case .invalidBase32, .invalidOTPAuthURL:
+            String(localized: "Verify the QR code or manual entry and try again.")
+        case .biometricFailed:
+            String(localized: "Try again, or use your device passcode.")
+        case .cameraDenied:
+            String(localized: "Open Settings > TokenMint > Camera to enable.")
+        case .unknown:
+            String(localized: "Please try again later.")
+        }
+    }
 }

@@ -2,7 +2,7 @@ import LocalAuthentication
 
 /// Abstraction for biometric authentication.
 @MainActor
-protocol BiometricServiceProtocol: Observable {
+protocol BiometricServiceProtocol {
     var isLocked: Bool { get }
     var biometryType: LABiometryType { get }
     var isEnabled: Bool { get set }
