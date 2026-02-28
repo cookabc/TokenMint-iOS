@@ -6,6 +6,7 @@ struct SettingsView: View {
     @Environment(VaultService.self) private var vaultService
     @AppStorage("hapticEnabled") private var hapticEnabled = true
     @AppStorage("selectedTheme") private var selectedTheme: AppThemeOption = .system
+    @AppStorage("appLanguage") private var appLanguage: AppLanguage = .system
 
     @State private var showImporter = false
     @State private var importResult: ImportResult?
@@ -40,6 +41,13 @@ struct SettingsView: View {
                 }
                 .accessibilityLabel(AccessibilityLabel.themeSelector)
                 .accessibilityIdentifier(AccessibilityID.settingsThemePicker)
+
+                Picker("Language", selection: $appLanguage) {
+                    ForEach(AppLanguage.allCases, id: \.self) { language in
+                        Text(language.displayName).tag(language)
+                    }
+                }
+                .accessibilityIdentifier("settings_language_picker")
             }
 
             Section("Data") {

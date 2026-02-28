@@ -68,22 +68,26 @@ struct ScannerView: View {
             }
 
             HStack(spacing: DesignTokens.Spacing.medium) {
-                Button("Add Token") {
+                Button {
                     Task {
                         try? await vaultService.addToken(token)
                         router.pop()
                     }
+                } label: {
+                    Label("Add Token", systemImage: "plus.circle")
                 }
                 .buttonStyle(.borderedProminent)
                 .accessibilityLabel(AccessibilityLabel.addTokenManual)
                 .accessibilityHint(AccessibilityHint.saveToken)
                 .accessibilityIdentifier(AccessibilityID.saveTokenButton)
 
-                Button("Scan Again") {
+                Button {
                     withAnimation(AnimationTokens.quick) {
                         scannedToken = nil
                         isScanning = true
                     }
+                } label: {
+                    Label("Scan Again", systemImage: "qrcode.viewfinder")
                 }
                 .buttonStyle(.bordered)
                 .accessibilityLabel(AccessibilityLabel.scanAgain)
