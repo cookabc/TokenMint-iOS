@@ -17,11 +17,30 @@ enum AppLanguage: String, CaseIterable, Sendable {
 
     var displayName: String {
         switch self {
-        case .system: String(localized: "System")
+        case .system: L("System")
         case .en:     "English"
         case .zhHans: "简体中文"
         }
     }
+
+    // MARK: - Effective Locale
+
+    /// The effective locale based on the current in-app language setting.
+    /// Reads directly from UserDefaults so non-View code can access it.
+    static var effectiveLocale: Locale {
+        let raw = UserDefaults.standard.string(forKey: "appLanguage") ?? "system"
+        guard let lang = AppLanguage(rawValue: raw), let locale = lang.locale else {
+            return .current
+        }
+        return locale
+    }
+}
+
+// MARK: - Locale-Aware Localization Helper
+
+/// Locale-aware replacement for `String(localized:)` that respects in-app language override.
+func L(_ key: String.LocalizationValue) -> String {
+    String(localized: key, locale: AppLanguage.effectiveLocale)
 }
 
 // MARK: - View Extension
