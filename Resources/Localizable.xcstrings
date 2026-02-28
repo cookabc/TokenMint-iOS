@@ -1,12 +1,6 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "": {
-      "extractionState": "manual"
-    },
-    "%@": {
-      "extractionState": "manual"
-    },
     "%@ token(s) imported successfully.": {
       "localizations": {
         "zh-Hans": {
@@ -16,19 +10,24 @@
           }
         }
       },
-      "extractionState": "manual"
+      "extractionState": "manual",
+      "shouldGenerateInfoPlistValue": false
     },
     "6": {
-      "extractionState": "manual"
+      "extractionState": "manual",
+      "shouldGenerateInfoPlistValue": false
     },
     "8": {
-      "extractionState": "manual"
+      "extractionState": "manual",
+      "shouldGenerateInfoPlistValue": false
     },
     "30s": {
-      "extractionState": "manual"
+      "extractionState": "manual",
+      "shouldGenerateInfoPlistValue": false
     },
     "60s": {
-      "extractionState": "manual"
+      "extractionState": "manual",
+      "shouldGenerateInfoPlistValue": false
     },
     "About": {
       "extractionState": "manual",
@@ -39,7 +38,8 @@
             "value": "关于"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Access denied": {
       "extractionState": "manual",
@@ -50,7 +50,8 @@
             "value": "访问被拒绝"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Account (e.g. user@email.com)": {
       "extractionState": "manual",
@@ -61,7 +62,8 @@
             "value": "账户（如 user@email.com）"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Account Info": {
       "extractionState": "manual",
@@ -72,18 +74,8 @@
             "value": "账户信息"
           }
         }
-      }
-    },
-    "Add manually": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "手动添加"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Add Manually": {
       "extractionState": "manual",
@@ -94,18 +86,8 @@
             "value": "手动添加"
           }
         }
-      }
-    },
-    "Add new token": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "添加新令牌"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Add Token": {
       "extractionState": "manual",
@@ -116,7 +98,8 @@
             "value": "添加令牌"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Add your first authenticator token": {
       "localizations": {
@@ -127,7 +110,8 @@
           }
         }
       },
-      "extractionState": "manual"
+      "extractionState": "manual",
+      "shouldGenerateInfoPlistValue": false
     },
     "Advanced": {
       "extractionState": "manual",
@@ -138,7 +122,8 @@
             "value": "高级"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Algorithm": {
       "extractionState": "manual",
@@ -149,7 +134,8 @@
             "value": "算法"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "An unexpected error occurred: %@": {
       "extractionState": "manual",
@@ -160,7 +146,8 @@
             "value": "发生了意外错误：%@"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Base32 Secret": {
       "extractionState": "manual",
@@ -171,18 +158,8 @@
             "value": "Base32 密钥"
           }
         }
-      }
-    },
-    "Biometric unlock": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "生物识别解锁"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Biometric Unlock": {
       "extractionState": "manual",
@@ -193,7 +170,8 @@
             "value": "生物识别解锁"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Camera access denied. Please enable in Settings.": {
       "extractionState": "manual",
@@ -204,7 +182,8 @@
             "value": "相机访问被拒绝，请在设置中启用。"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Camera Not Available": {
       "extractionState": "manual",
@@ -215,7 +194,8 @@
             "value": "相机不可用"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Copied!": {
       "localizations": {
@@ -226,7 +206,8 @@
           }
         }
       },
-      "extractionState": "manual"
+      "extractionState": "manual",
+      "shouldGenerateInfoPlistValue": false
     },
     "Dark": {
       "extractionState": "manual",
@@ -237,7 +218,8 @@
             "value": "深色"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Data": {
       "extractionState": "manual",
@@ -248,7 +230,8 @@
             "value": "数据"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Decryption failed: %@": {
       "extractionState": "manual",
@@ -259,7 +242,8 @@
             "value": "解密失败：%@"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Delete": {
       "extractionState": "manual",
@@ -270,18 +254,8 @@
             "value": "删除"
           }
         }
-      }
-    },
-    "Delete token": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "删除令牌"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Digits": {
       "extractionState": "manual",
@@ -292,106 +266,8 @@
             "value": "位数"
           }
         }
-      }
-    },
-    "Double tap to add a new authenticator token": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "双击添加新的验证令牌"
-          }
-        }
-      }
-    },
-    "Double tap to authenticate": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "双击进行身份验证"
-          }
-        }
-      }
-    },
-    "Double tap to copy code": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "双击复制代码"
-          }
-        }
-      }
-    },
-    "Double tap to export vault as JSON": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "双击将保库导出为 JSON"
-          }
-        }
-      }
-    },
-    "Double tap to import vault from file": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "双击从文件导入保库"
-          }
-        }
-      }
-    },
-    "Double tap to open settings": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "双击打开设置"
-          }
-        }
-      }
-    },
-    "Double tap to save this token": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "双击保存此令牌"
-          }
-        }
-      }
-    },
-    "Double tap to scan another QR code": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "双击扫描另一个二维码"
-          }
-        }
-      }
-    },
-    "Edit list": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "编辑列表"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Encryption failed: %@": {
       "extractionState": "manual",
@@ -402,18 +278,8 @@
             "value": "加密失败：%@"
           }
         }
-      }
-    },
-    "Export vault": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "导出保库"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Export Vault": {
       "extractionState": "manual",
@@ -424,7 +290,8 @@
             "value": "导出密钥库"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Face ID": {
       "extractionState": "manual",
@@ -435,7 +302,8 @@
             "value": "面容 ID"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Failed to load vault: %@": {
       "extractionState": "manual",
@@ -446,7 +314,8 @@
             "value": "保库加载失败：%@"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Failed to save vault: %@": {
       "extractionState": "manual",
@@ -457,18 +326,8 @@
             "value": "保库保存失败：%@"
           }
         }
-      }
-    },
-    "Haptic feedback": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "触觉反馈"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Haptic Feedback": {
       "extractionState": "manual",
@@ -479,7 +338,8 @@
             "value": "触觉反馈"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Import Complete": {
       "extractionState": "manual",
@@ -490,7 +350,8 @@
             "value": "导入完成"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Import failed: %@": {
       "localizations": {
@@ -501,18 +362,8 @@
           }
         }
       },
-      "extractionState": "manual"
-    },
-    "Import vault": {
       "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "导入保库"
-          }
-        }
-      }
+      "shouldGenerateInfoPlistValue": false
     },
     "Import Vault": {
       "extractionState": "manual",
@@ -523,7 +374,8 @@
             "value": "导入密钥库"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Invalid Base32 secret key": {
       "extractionState": "manual",
@@ -534,7 +386,8 @@
             "value": "无效的 Base32 密钥"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Invalid otpauth:// URL format": {
       "extractionState": "manual",
@@ -545,7 +398,8 @@
             "value": "无效的 otpauth:// URL 格式"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Issuer (e.g. GitHub)": {
       "extractionState": "manual",
@@ -556,7 +410,8 @@
             "value": "发行方（如 GitHub）"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Language": {
       "extractionState": "manual",
@@ -567,7 +422,8 @@
             "value": "语言"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Light": {
       "extractionState": "manual",
@@ -578,7 +434,8 @@
             "value": "浅色"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "No Tokens Yet": {
       "extractionState": "manual",
@@ -589,7 +446,8 @@
             "value": "还没有令牌"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "OK": {
       "extractionState": "manual",
@@ -600,7 +458,8 @@
             "value": "好的"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Optic ID": {
       "extractionState": "manual",
@@ -611,7 +470,8 @@
             "value": "Optic ID"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Period": {
       "extractionState": "manual",
@@ -622,7 +482,8 @@
             "value": "周期"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Pin": {
       "extractionState": "manual",
@@ -633,18 +494,8 @@
             "value": "置顶"
           }
         }
-      }
-    },
-    "Pin token": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "置顶令牌"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Please restart the app. If the problem persists, reinstall.": {
       "extractionState": "manual",
@@ -655,7 +506,8 @@
             "value": "请重启应用。如果问题持续，请重新安装。"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Preferences": {
       "extractionState": "manual",
@@ -666,7 +518,8 @@
             "value": "偏好设置"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Re-authenticate and try again.": {
       "extractionState": "manual",
@@ -677,7 +530,8 @@
             "value": "请重新验证后重试。"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Save": {
       "extractionState": "manual",
@@ -688,29 +542,8 @@
             "value": "保存"
           }
         }
-      }
-    },
-    "Save token": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "保存令牌"
-          }
-        }
-      }
-    },
-    "Scan again": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "再次扫描"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Scan Again": {
       "extractionState": "manual",
@@ -721,7 +554,8 @@
             "value": "重新扫描"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Scan Error": {
       "extractionState": "manual",
@@ -732,18 +566,8 @@
             "value": "扫描错误"
           }
         }
-      }
-    },
-    "Scan QR code": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "扫描二维码"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Scan QR Code": {
       "extractionState": "manual",
@@ -754,7 +578,8 @@
             "value": "扫描二维码"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Search tokens": {
       "extractionState": "manual",
@@ -765,7 +590,8 @@
             "value": "搜索令牌"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Secret Key": {
       "extractionState": "manual",
@@ -776,7 +602,8 @@
             "value": "密钥"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Security": {
       "extractionState": "manual",
@@ -787,7 +614,8 @@
             "value": "安全"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Settings": {
       "extractionState": "manual",
@@ -798,7 +626,8 @@
             "value": "设置"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "System": {
       "extractionState": "manual",
@@ -809,18 +638,8 @@
             "value": "跟随系统"
           }
         }
-      }
-    },
-    "Tap to unlock": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "点击解锁"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Tap to Unlock": {
       "localizations": {
@@ -831,7 +650,8 @@
           }
         }
       },
-      "extractionState": "manual"
+      "extractionState": "manual",
+      "shouldGenerateInfoPlistValue": false
     },
     "Theme": {
       "extractionState": "manual",
@@ -842,7 +662,8 @@
             "value": "主题"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "This device does not support barcode scanning or camera access was denied.": {
       "localizations": {
@@ -853,10 +674,12 @@
           }
         }
       },
-      "extractionState": "manual"
+      "extractionState": "manual",
+      "shouldGenerateInfoPlistValue": false
     },
     "TokenMint": {
-      "extractionState": "manual"
+      "extractionState": "manual",
+      "shouldGenerateInfoPlistValue": false
     },
     "TokenMint Backup": {
       "extractionState": "manual",
@@ -867,7 +690,8 @@
             "value": "TokenMint 备份"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Tokens": {
       "extractionState": "manual",
@@ -878,7 +702,8 @@
             "value": "令牌"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Touch ID": {
       "extractionState": "manual",
@@ -889,7 +714,8 @@
             "value": "触控 ID"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Unlock your vault": {
       "extractionState": "manual",
@@ -900,7 +726,8 @@
             "value": "解锁你的保险库"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Unpin": {
       "extractionState": "manual",
@@ -911,18 +738,8 @@
             "value": "取消置顶"
           }
         }
-      }
-    },
-    "Unpin token": {
-      "extractionState": "manual",
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "取消置顶令牌"
-          }
-        }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Use Passcode": {
       "extractionState": "manual",
@@ -933,7 +750,8 @@
             "value": "使用密码"
           }
         }
-      }
+      },
+      "shouldGenerateInfoPlistValue": false
     },
     "Version": {
       "extractionState": "manual",
@@ -942,6 +760,161 @@
           "stringUnit": {
             "state": "translated",
             "value": "版本"
+          }
+        }
+      },
+      "shouldGenerateInfoPlistValue": false
+    },
+    "Add New Token": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加新令牌"
+          }
+        }
+      }
+    },
+    "Save Token": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存令牌"
+          }
+        }
+      }
+    },
+    "Edit List": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "编辑列表"
+          }
+        }
+      }
+    },
+    "Delete Token": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除令牌"
+          }
+        }
+      }
+    },
+    "Unpin Token": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消置顶令牌"
+          }
+        }
+      }
+    },
+    "Pin Token": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "置顶令牌"
+          }
+        }
+      }
+    },
+    "Double Tap to Copy Code": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "双击复制代码"
+          }
+        }
+      }
+    },
+    "Double Tap to Add a New Authenticator Token": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "双击添加新的验证令牌"
+          }
+        }
+      }
+    },
+    "Double Tap to Authenticate": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "双击进行身份验证"
+          }
+        }
+      }
+    },
+    "Double Tap to Save This Token": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "双击保存此令牌"
+          }
+        }
+      }
+    },
+    "Double Tap to Export Vault as JSON": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "双击将保库导出为 JSON"
+          }
+        }
+      }
+    },
+    "Double Tap to Import Vault From File": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "双击从文件导入保库"
+          }
+        }
+      }
+    },
+    "Double Tap to Scan Another QR Code": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "双击扫描另一个二维码"
+          }
+        }
+      }
+    },
+    "Double Tap to Open Settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "双击打开设置"
           }
         }
       }
