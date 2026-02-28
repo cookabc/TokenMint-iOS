@@ -110,7 +110,7 @@ struct ScannerView: View {
                 scannedToken = token
             }
         } else {
-            errorMessage = "Invalid QR code. Expected an otpauth:// URL."
+            errorMessage = L("Invalid QR code. Expected an otpauth:// URL.")
             showError = true
         }
     }
