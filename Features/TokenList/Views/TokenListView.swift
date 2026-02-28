@@ -98,7 +98,9 @@ struct TokenListView: View {
                             Task { await togglePin(token) }
                         } label: {
                             Label(
-                                token.isPinned ? "Unpin" : "Pin",
+                                token.isPinned
+                                    ? String(localized: "Unpin")
+                                    : String(localized: "Pin"),
                                 systemImage: token.isPinned ? "pin.slash" : "pin"
                             )
                         }
