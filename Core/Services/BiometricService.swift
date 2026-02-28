@@ -22,8 +22,8 @@ final class BiometricService: BiometricServiceProtocol {
 
     func authenticate() async throws {
         let context = LAContext()
-        context.localizedFallbackTitle = String(localized: "Use Passcode")
-        let reason = String(localized: "Unlock your vault")
+        context.localizedFallbackTitle = L("Use Passcode")
+        let reason = L("Unlock your vault")
         _ = try await context.evaluatePolicy(
             .deviceOwnerAuthentication,
             localizedReason: reason

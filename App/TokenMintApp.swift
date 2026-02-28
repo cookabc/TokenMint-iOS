@@ -26,6 +26,7 @@ struct TokenMintApp: App {
                     .environment(biometricService)
                     .preferredColorScheme(selectedTheme.colorScheme)
                     .localeOverride(appLanguage)
+                    .id(appLanguage)
             } else {
                 TokenListView()
                     .environment(vaultService)
@@ -33,6 +34,7 @@ struct TokenMintApp: App {
                     .environment(router)
                     .preferredColorScheme(selectedTheme.colorScheme)
                     .localeOverride(appLanguage)
+                    .id(appLanguage)
             }
         }
         .onChange(of: scenePhase) { _, newPhase in

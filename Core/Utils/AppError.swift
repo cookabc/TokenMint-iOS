@@ -16,44 +16,44 @@ enum AppError: LocalizedError, Sendable {
     var errorDescription: String? {
         switch self {
         case .vaultLoadFailed(let msg):
-            String(localized: "Failed to load vault: \(msg)")
+            L("Failed to load vault: \(msg)")
         case .vaultSaveFailed(let msg):
-            String(localized: "Failed to save vault: \(msg)")
+            L("Failed to save vault: \(msg)")
         case .encryptionFailed(let msg):
-            String(localized: "Encryption failed: \(msg)")
+            L("Encryption failed: \(msg)")
         case .decryptionFailed(let msg):
-            String(localized: "Decryption failed: \(msg)")
+            L("Decryption failed: \(msg)")
         case .keychainError(let status):
-            String(localized: "Keychain error (code: \(status))")
+            L("Keychain error (code: \(status))")
         case .invalidBase32:
-            String(localized: "Invalid Base32 secret key")
+            L("Invalid Base32 secret key")
         case .invalidOTPAuthURL:
-            String(localized: "Invalid otpauth:// URL format")
+            L("Invalid otpauth:// URL format")
         case .biometricFailed(let msg):
-            String(localized: "Biometric authentication failed: \(msg)")
+            L("Biometric authentication failed: \(msg)")
         case .cameraDenied:
-            String(localized: "Camera access denied. Please enable in Settings.")
+            L("Camera access denied. Please enable in Settings.")
         case .unknown(let msg):
-            String(localized: "An unexpected error occurred: \(msg)")
+            L("An unexpected error occurred: \(msg)")
         }
     }
 
     var recoverySuggestion: String? {
         switch self {
         case .vaultLoadFailed, .vaultSaveFailed:
-            String(localized: "Please restart the app. If the problem persists, reinstall.")
+            L("Please restart the app. If the problem persists, reinstall.")
         case .encryptionFailed, .decryptionFailed:
-            String(localized: "Re-authenticate and try again.")
+            L("Re-authenticate and try again.")
         case .keychainError:
-            String(localized: "Check device passcode settings and try again.")
+            L("Check device passcode settings and try again.")
         case .invalidBase32, .invalidOTPAuthURL:
-            String(localized: "Verify the QR code or manual entry and try again.")
+            L("Verify the QR code or manual entry and try again.")
         case .biometricFailed:
-            String(localized: "Try again, or use your device passcode.")
+            L("Try again, or use your device passcode.")
         case .cameraDenied:
-            String(localized: "Open Settings > TokenMint > Camera to enable.")
+            L("Open Settings > TokenMint > Camera to enable.")
         case .unknown:
-            String(localized: "Please try again later.")
+            L("Please try again later.")
         }
     }
 }

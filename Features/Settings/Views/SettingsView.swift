@@ -105,10 +105,10 @@ struct SettingsView: View {
 
     private var biometricLabel: String {
         switch biometricService.biometryType {
-        case .faceID: String(localized: "Face ID")
-        case .touchID: String(localized: "Touch ID")
-        case .opticID: String(localized: "Optic ID")
-        default: String(localized: "Biometric Unlock")
+        case .faceID: L("Face ID")
+        case .touchID: L("Touch ID")
+        case .opticID: L("Optic ID")
+        default: L("Biometric Unlock")
         }
     }
 
@@ -130,7 +130,7 @@ struct SettingsView: View {
         switch result {
         case .success(let url):
             guard url.startAccessingSecurityScopedResource() else {
-                importResult = .failure("Access denied")
+                importResult = .failure(L("Access denied"))
                 showImportAlert = true
                 return
             }

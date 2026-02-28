@@ -15,9 +15,9 @@ enum AppThemeOption: String, CaseIterable, Sendable {
 
     var displayName: String {
         switch self {
-        case .system: String(localized: "System")
-        case .light:  String(localized: "Light")
-        case .dark:   String(localized: "Dark")
+        case .system: L("System")
+        case .light:  L("Light")
+        case .dark:   L("Dark")
         }
     }
 }

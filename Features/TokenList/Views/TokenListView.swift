@@ -99,8 +99,8 @@ struct TokenListView: View {
                         } label: {
                             Label(
                                 token.isPinned
-                                    ? String(localized: "Unpin")
-                                    : String(localized: "Pin"),
+                                    ? L("Unpin")
+                                    : L("Pin"),
                                 systemImage: token.isPinned ? "pin.slash" : "pin"
                             )
                         }
