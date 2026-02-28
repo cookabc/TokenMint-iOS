@@ -38,9 +38,16 @@ enum AppLanguage: String, CaseIterable, Sendable {
 
 // MARK: - Locale-Aware Localization Helper
 
-/// Locale-aware replacement for `String(localized:)` that respects in-app language override.
+/// Bundle-based replacement for `String(localized:)` that respects in-app language override.
+/// Uses the correct `.lproj` bundle so the string table lookup matches the selected language.
 func L(_ key: String.LocalizationValue) -> String {
-    String(localized: key, locale: AppLanguage.effectiveLocale)
+    let raw = UserDefaults.standard.string(forKey: "appLanguage") ?? "system"
+    guard raw != "system",
+          let path = Bundle.main.path(forResource: raw, ofType: "lproj"),
+          let bundle = Bundle(path: path) else {
+        return String(localized: key)
+    }
+    return String(localized: key, bundle: bundle)
 }
 
 // MARK: - View Extension
