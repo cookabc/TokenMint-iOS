@@ -15,6 +15,7 @@
 		3E4061B3EBDB7DCC7382677F /* HapticServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80DC6681155A01C1347302 /* HapticServiceProtocol.swift */; };
 		44E3AC6428530F44C838C863 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1023E60B833AFC8F7207001 /* ViewState.swift */; };
 		482077ECE3F3B60E97CF2042 /* TOTPServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2551E5612475487B4429A8 /* TOTPServiceTests.swift */; };
+		4EA2643C70361F0386E19F5A /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE8B8C7C42AEBD2BE9AC76A /* AppLanguage.swift */; };
 		573371E900312A98D2C6B274 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67182F999E02C72B3AEF35F6 /* Router.swift */; };
 		6023A98C92E0B83C9AF24674 /* VaultServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34668FE0BA793264BC1F34 /* VaultServiceTests.swift */; };
 		6DB4A500611D1634205C63D5 /* AddTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3109FFAE0285E6027A7088B3 /* AddTokenView.swift */; };
@@ -93,6 +94,7 @@
 		83CA480FEA477356F80EBC3F /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		90ABFF606AF0316FA1528D62 /* VaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultService.swift; sourceTree = "<group>"; };
 		A61BD518050FD986CB363FF5 /* LockScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenView.swift; sourceTree = "<group>"; };
+		ADE8B8C7C42AEBD2BE9AC76A /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		AEF97BBDACC2EACA5AA25793 /* VaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepository.swift; sourceTree = "<group>"; };
 		BC516F78942F240005E62693 /* HapticTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticTokens.swift; sourceTree = "<group>"; };
 		C29A22A2B24AFED7FBBBE7F2 /* TokenMintUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TokenMintUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +232,7 @@
 			children = (
 				CE3B500EAB88E34C4874F392 /* Accessibility.swift */,
 				C688D6D346900E993E081436 /* AppError.swift */,
+				ADE8B8C7C42AEBD2BE9AC76A /* AppLanguage.swift */,
 				ED2457CA2D802A91D2B2616E /* AppThemeOption.swift */,
 				119EE9846F715A55A4E966CE /* Logger.swift */,
 				D1023E60B833AFC8F7207001 /* ViewState.swift */,
@@ -491,6 +494,7 @@
 				6DB4A500611D1634205C63D5 /* AddTokenView.swift in Sources */,
 				F077DC5B202C11FF0209D266 /* AnimationTokens.swift in Sources */,
 				7CF18B204172FAFB7498B136 /* AppError.swift in Sources */,
+				4EA2643C70361F0386E19F5A /* AppLanguage.swift in Sources */,
 				9914265067B027A20C96F115 /* AppThemeOption.swift in Sources */,
 				ADC00BA9905E56F435ED671C /* BiometricService.swift in Sources */,
 				FDC8C5A42C8695A4C4167689 /* BiometricServiceProtocol.swift in Sources */,
@@ -592,6 +596,8 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed to scan QR codes for adding tokens";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID is used to protect your vault";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -773,6 +779,8 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed to scan QR codes for adding tokens";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID is used to protect your vault";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -5,6 +5,7 @@ struct TokenMintApp: App {
     @State private var vaultService: VaultService
     @State private var biometricService = BiometricService()
     @State private var router = Router()
+    @AppStorage("appLanguage") private var appLanguage: AppLanguage = .system
     @Environment(\.scenePhase) private var scenePhase
 
     init() {
@@ -22,11 +23,13 @@ struct TokenMintApp: App {
             if biometricService.isLocked {
                 LockScreenView()
                     .environment(biometricService)
+                    .localeOverride(appLanguage)
             } else {
                 TokenListView()
                     .environment(vaultService)
                     .environment(biometricService)
                     .environment(router)
+                    .localeOverride(appLanguage)
             }
         }
         .onChange(of: scenePhase) { _, newPhase in

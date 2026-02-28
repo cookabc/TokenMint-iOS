@@ -47,7 +47,7 @@ struct AddTokenView: View {
         .navigationTitle("Add Token")
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
-                Button("Save") {
+                Button {
                     Task {
                         let token = Token(
                             issuer: issuer,
@@ -60,6 +60,8 @@ struct AddTokenView: View {
                         try? await vaultService.addToken(token)
                         router.pop()
                     }
+                } label: {
+                    Label("Save", systemImage: "checkmark")
                 }
                 .disabled(!isValid)
                 .accessibilityLabel(AccessibilityLabel.saveToken)
