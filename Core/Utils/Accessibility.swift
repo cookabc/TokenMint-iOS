@@ -34,22 +34,22 @@ enum AccessibilityID {
 
 /// Accessibility labels for VoiceOver.
 enum AccessibilityLabel {
-    static var addToken: String { L("Add new token") }
-    static var scanQR: String { L("Scan QR code") }
-    static var unlock: String { L("Tap to unlock") }
-    static var biometricToggle: String { L("Biometric unlock") }
-    static var hapticToggle: String { L("Haptic feedback") }
+    static var addToken: String { L("Add New Token") }
+    static var scanQR: String { L("Scan QR Code") }
+    static var unlock: String { L("Tap to Unlock") }
+    static var biometricToggle: String { L("Biometric Unlock") }
+    static var hapticToggle: String { L("Haptic Feedback") }
     static var themeSelector: String { L("Theme") }
-    static var exportVault: String { L("Export vault") }
-    static var importVault: String { L("Import vault") }
-    static var saveToken: String { L("Save token") }
-    static var addTokenManual: String { L("Add manually") }
-    static var scanAgain: String { L("Scan again") }
+    static var exportVault: String { L("Export Vault") }
+    static var importVault: String { L("Import Vault") }
+    static var saveToken: String { L("Save Token") }
+    static var addTokenManual: String { L("Add Manually") }
+    static var scanAgain: String { L("Scan Again") }
     static var settings: String { L("Settings") }
-    static var editList: String { L("Edit list") }
-    static var deleteToken: String { L("Delete token") }
+    static var editList: String { L("Edit List") }
+    static var deleteToken: String { L("Delete Token") }
     static func pinToken(_ isPinned: Bool) -> String {
-        isPinned ? L("Unpin token") : L("Pin token")
+        isPinned ? L("Unpin Token") : L("Pin Token")
     }
     static func totpCode(_ code: String) -> String {
         code.map(String.init).joined(separator: ", ")
@@ -61,12 +61,12 @@ enum AccessibilityLabel {
 
 /// Accessibility hints for VoiceOver.
 enum AccessibilityHint {
-    static var tokenRow: String { L("Double tap to copy code") }
-    static var addToken: String { L("Double tap to add a new authenticator token") }
-    static var unlock: String { L("Double tap to authenticate") }
-    static var saveToken: String { L("Double tap to save this token") }
-    static var exportVault: String { L("Double tap to export vault as JSON") }
-    static var importVault: String { L("Double tap to import vault from file") }
-    static var scanAgain: String { L("Double tap to scan another QR code") }
-    static var settings: String { L("Double tap to open settings") }
+    static var tokenRow: String { L("Double Tap to Copy Code") }
+    static var addToken: String { L("Double Tap to Add a New Authenticator Token") }
+    static var unlock: String { L("Double Tap to Authenticate") }
+    static var saveToken: String { L("Double Tap to Save This Token") }
+    static var exportVault: String { L("Double Tap to Export Vault as JSON") }
+    static var importVault: String { L("Double Tap to Import Vault From File") }
+    static var scanAgain: String { L("Double Tap to Scan Another QR Code") }
+    static var settings: String { L("Double Tap to Open Settings") }
 }
