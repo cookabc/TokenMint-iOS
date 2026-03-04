@@ -9,6 +9,9 @@ DerivedData/
 ## Personal settings
 xcuserdata/
 
+## XcodeGen
+*.xcodeproj/
+
 ## Specific Xcode files
 *.pbxuser
 !default.pbxuser
@@ -67,6 +70,7 @@ Temporary Items
 .cursor/
 .agent/
 .anthropic/
+.jules/
 
 # Local configuration
 .env
