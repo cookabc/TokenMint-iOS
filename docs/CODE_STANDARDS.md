@@ -30,7 +30,7 @@
 | 测试 | Swift Testing（单元/集成）+ XCTest（UI） | `import Testing` + `@Test` + `#expect` |
 | 本地化 | `Localizable.xcstrings` + `String(localized:)` | 中英双语 |
 | Lint | SwiftLint | 零 error，零 warning |
-| 项目生成 | XcodeGen（`project.yml`） | |
+| 项目生成 | Tuist（`Project.swift`） | |
 | CI | GitHub Actions（macOS 16 runner） | Xcode 26.2 |
 
 > 平台版本、导航方式、特有 API 等见各平台增量文档。
@@ -86,7 +86,9 @@ ProjectName/
 ├── .github/workflows/ci.yml
 ├── .swiftlint.yml
 ├── .gitignore
-├── project.yml                       # XcodeGen 配置
+├── Project.swift                     # Tuist 项目配置
+├── Tuist.swift                       # Tuist 全局配置
+├── Tuist/ProjectDescriptionHelpers/  # 共享模板
 └── README.md
 ```
 
@@ -811,18 +813,22 @@ extension APIClient {
 | swift-algorithms | 集合算法 | Apple 官方维护 |
 | swift-collections | 高级数据结构 | Apple 官方维护 |
 
-### 9.3 project.yml 集成
+### 9.3 Tuist 依赖集成
 
-```yaml
-packages:
-  Alamofire:
-    url: https://github.com/Alamofire/Alamofire
-    version: 5.10.0  # 锁定大版本
+在 `Project.swift` 的 target 中添加依赖：
 
-targets:
-  ProjectName:
-    dependencies:
-      - package: Alamofire
+```swift
+// Tuist/Package.swift
+import PackageDescription
+let package = Package(
+    name: "Dependencies",
+    dependencies: [
+        .package(url: "https://github.com/Alamofire/Alamofire", from: "5.10.0"),
+    ]
+)
+
+// Project.swift target dependencies:
+.external(name: "Alamofire")
 ```
 
 ---
@@ -1401,7 +1407,7 @@ type: `feat` / `fix` / `refactor` / `test` / `chore` / `docs` / `style` / `perf`
 
 > 各平台增量文档中有平台专属 checklist 项。
 
-- [ ] `project.yml` + `xcodegen generate`
+- [ ] `Project.swift` + `tuist generate`
 - [ ] `Core/Constants/` — DesignTokens / AnimationTokens
 - [ ] `Core/Extensions/` — Color+Extensions / View+Extensions
 - [ ] `Core/Navigation/Router.swift`

@@ -297,83 +297,46 @@ struct PressEffectButtonStyle: ButtonStyle {
 
 ---
 
-## 十一、XcodeGen 配置模板（iOS）
+## 十一、Tuist 配置模板（iOS）
 
-```yaml
-name: ProjectName
-options:
-  xcodeVersion: "26.2"
-  deploymentTarget:
-    iOS: "26.0"
-  createIntermediateGroups: true
+### 11.1 `Tuist.swift`（项目根目录）
 
-settings:
-  base:
-    SWIFT_VERSION: "6.2"
-    SWIFT_STRICT_CONCURRENCY: complete
-    IPHONEOS_DEPLOYMENT_TARGET: "26.0"
+```swift
+import ProjectDescription
 
-schemes:
-  ProjectName:
-    build:
-      targets:
-        ProjectName: all
-    run:
-      config: Debug
-    test:
-      config: Debug
-      targets:
-        - ProjectNameTests
-        - ProjectNameUITests
-    profile:
-      config: Release
-    analyze:
-      config: Debug
+let config = Config()
+```
 
-targets:
-  ProjectName:
-    type: application
-    platform: iOS
-    sources:
-      - path: App
-      - path: Core
-      - path: Features
-      - path: Resources
-    resources:
-      - path: App/Assets.xcassets
-      - path: App/PrivacyInfo.xcprivacy
-      - path: Resources/Localizable.xcstrings
-    settings:
-      PRODUCT_NAME: ProjectName
-      GENERATE_INFOPLIST_FILE: YES
-      INFOPLIST_KEY_UILaunchScreen_Generation: YES
-      CURRENT_PROJECT_VERSION: 1
-      MARKETING_VERSION: "1.0"
-      PRODUCT_BUNDLE_IDENTIFIER: com.example.projectName
-      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+### 11.2 `Tuist/ProjectDescriptionHelpers/Project+App.swift`
 
-  ProjectNameTests:
-    type: bundle.unit-test
-    platform: iOS
-    sources:
-      - path: Tests/UnitTests
-      - path: Tests/IntegrationTests
-    dependencies:
-      - target: ProjectName
-    settings:
-      GENERATE_INFOPLIST_FILE: YES
-      PRODUCT_BUNDLE_IDENTIFIER: com.example.projectName.tests
+```swift
+import ProjectDescription
 
-  ProjectNameUITests:
-    type: bundle.ui-testing
-    platform: iOS
-    sources:
-      - path: Tests/UITests
-    dependencies:
-      - target: ProjectName
-    settings:
-      GENERATE_INFOPLIST_FILE: YES
-      PRODUCT_BUNDLE_IDENTIFIER: com.example.projectName.uitests
+extension Project {
+    public static func app(
+        name: String,
+        bundleId: String,
+        displayName: String? = nil,
+        infoPlist: [String: Plist.Value] = [:],
+        testSources: [String] = ["Tests/UnitTests/**", "Tests/IntegrationTests/**"],
+        schemeConfig: Configuration.Variant = .release
+    ) -> Project {
+        // See actual implementation in Tuist/ProjectDescriptionHelpers/
+    }
+}
+```
+
+### 11.3 `Project.swift`（项目清单）
+
+```swift
+import ProjectDescription
+import ProjectDescriptionHelpers
+
+let project = Project.app(
+    name: "ProjectName",
+    bundleId: "com.example.projectName",
+    displayName: "ProjectName"
+)
 ```
 
 ---
@@ -410,11 +373,14 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/*.swift') }}
           restore-keys: ${{ runner.os }}-
 
-      - name: Install tools
-        run: brew install swiftlint xcodegen
+      - name: Install Tuist
+        run: curl -Ls https://install.tuist.io | bash
+
+      - name: Install SwiftLint
+        run: brew install swiftlint
 
       - name: Generate Xcode project
-        run: xcodegen generate
+        run: tuist generate --no-open
 
       - name: SwiftLint
         run: swiftlint lint --strict --reporter github-actions-logging
