@@ -9,8 +9,10 @@ DerivedData/
 ## Personal settings
 xcuserdata/
 
-## XcodeGen
+## Tuist
 *.xcodeproj/
+*.xcworkspace/
+Derived/
 
 ## Specific Xcode files
 *.pbxuser

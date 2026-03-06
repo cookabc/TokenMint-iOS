@@ -28,17 +28,17 @@ A clean and elegant TOTP authenticator for iOS, providing a secure, touch-first 
 | Architecture | MVVM — `@Observable @MainActor` ViewModels, protocol-based DI |
 | Concurrency | Structured Concurrency only (`Task.sleep` timer, no Combine) |
 | Testing | Swift Testing (unit) + XCTest (UI), 33 unit + 7 UI = **40 tests** |
-| Build System | XcodeGen (`project.yml` → `.xcodeproj`) |
+| Build System | Tuist (`Project.swift` → `.xcodeproj`) |
 
 ## Getting Started
 
 ```bash
-# Generate Xcode project (requires XcodeGen)
-brew install xcodegen
-xcodegen generate
+# Generate Xcode project (requires Tuist)
+curl -Ls https://install.tuist.io | bash
+tuist generate
 
-# Open and run
-open TokenMint.xcodeproj
+# Or build directly
+tuist build
 # Select iPhone 17 Pro simulator → Cmd+R
 ```
 
