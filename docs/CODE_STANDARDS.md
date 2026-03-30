@@ -10,6 +10,7 @@
 
 > [!NOTE]
 > **三文档结构**：
+>
 > - **本文档**：所有平台共享的架构、模式、规范
 > - **CODE_STANDARDS_iOS.md**：iOS 专属增量（导航、触觉、Liquid Glass 等）
 > - **CODE_STANDARDS_macOS.md**：macOS 专属增量（多窗口、全局热键、NSPanel 等）
@@ -18,20 +19,20 @@
 
 ## 一、技术栈（共享）
 
-| 维度 | 选型 | 备注 |
-|------|------|------|
-| 语言 | Swift 6.2 | `SWIFT_STRICT_CONCURRENCY = complete` |
-| UI | SwiftUI 7 | 平台原生 API 仅限逃生舱口场景（见 §四） |
-| 观察 | `@Observable` | 禁止 `ObservableObject` / `@Published` / `@StateObject` |
-| 依赖注入 | 协议 + 构造器注入 + `@Environment` | 无第三方 DI，无上帝容器 |
-| 并发 | Structured Concurrency | 默认禁止 Combine / GCD（见 §四 逃生舱口） |
-| 持久化 | SwiftData（默认） | 加密场景允许 Keychain / 加密文件 |
-| 网络 | URLSession（默认） | 复杂场景允许 Alamofire（见 §九） |
-| 测试 | Swift Testing（单元/集成）+ XCTest（UI） | `import Testing` + `@Test` + `#expect` |
-| 本地化 | `Localizable.xcstrings` + `String(localized:)` | 中英双语 |
-| Lint | SwiftLint | 零 error，零 warning |
-| 项目生成 | Tuist（`Project.swift`） | |
-| CI | GitHub Actions（macOS 16 runner） | Xcode 26.2 |
+| 维度     | 选型                                           | 备注                                                    |
+| -------- | ---------------------------------------------- | ------------------------------------------------------- |
+| 语言     | Swift 6.2                                      | `SWIFT_STRICT_CONCURRENCY = complete`                   |
+| UI       | SwiftUI 7                                      | 平台原生 API 仅限逃生舱口场景（见 §四）                 |
+| 观察     | `@Observable`                                  | 禁止 `ObservableObject` / `@Published` / `@StateObject` |
+| 依赖注入 | 协议 + 构造器注入 + `@Environment`             | 无第三方 DI，无上帝容器                                 |
+| 并发     | Structured Concurrency                         | 默认禁止 Combine / GCD（见 §四 逃生舱口）               |
+| 持久化   | SwiftData（默认）                              | 加密场景允许 Keychain / 加密文件                        |
+| 网络     | URLSession（默认）                             | 复杂场景允许 Alamofire（见 §九）                        |
+| 测试     | Swift Testing（单元/集成）+ XCTest（UI）       | `import Testing` + `@Test` + `#expect`                  |
+| 本地化   | `Localizable.xcstrings` + `String(localized:)` | 中英双语                                                |
+| Lint     | SwiftLint                                      | 零 error，零 warning                                    |
+| 项目生成 | Tuist（`Project.swift`）                       |                                                         |
+| CI       | GitHub Actions（macOS 16 runner）              | Xcode 26.2                                              |
 
 > 平台版本、导航方式、特有 API 等见各平台增量文档。
 
@@ -98,17 +99,17 @@ ProjectName/
 
 ### 3.1 隔离规则
 
-| 类型 | 隔离 | 理由 |
-|------|------|------|
-| SwiftUI View | 自动 `@MainActor` | SwiftUI 7 保证 |
-| ViewModel（`@Observable`） | `@MainActor` | UI 线程属性观察 |
-| Repository（SwiftData） | `@MainActor` | `ModelContext` 不可跨 actor |
-| Repository（文件 I/O） | `actor` | 无 UI 依赖 |
-| Service（需主线程 API） | `@MainActor` | 平台 API 要求 |
-| Service（纯计算） | `actor` 或 `Sendable struct` | 无 UI 依赖 |
-| 缓存 | `actor` | 线程安全内部可变状态 |
-| 数据模型 | `Sendable struct` 或 `@Model class` | SwiftData 模型不标 `Sendable` |
-| 枚举（Codable） | `Sendable` | 值类型，天然安全 |
+| 类型                       | 隔离                                | 理由                          |
+| -------------------------- | ----------------------------------- | ----------------------------- |
+| SwiftUI View               | 自动 `@MainActor`                   | SwiftUI 7 保证                |
+| ViewModel（`@Observable`） | `@MainActor`                        | UI 线程属性观察               |
+| Repository（SwiftData）    | `@MainActor`                        | `ModelContext` 不可跨 actor   |
+| Repository（文件 I/O）     | `actor`                             | 无 UI 依赖                    |
+| Service（需主线程 API）    | `@MainActor`                        | 平台 API 要求                 |
+| Service（纯计算）          | `actor` 或 `Sendable struct`        | 无 UI 依赖                    |
+| 缓存                       | `actor`                             | 线程安全内部可变状态          |
+| 数据模型                   | `Sendable struct` 或 `@Model class` | SwiftData 模型不标 `Sendable` |
+| 枚举（Codable）            | `Sendable`                          | 值类型，天然安全              |
 
 ### 3.2 禁止项（默认）
 
@@ -127,12 +128,12 @@ NavigationView                         // 用 NavigationStack / NavigationSplitV
 
 以下场景允许突破默认禁止项，**须在代码中以注释标注理由**：
 
-| 场景 | 允许使用 | 标注格式 |
-|------|----------|----------|
-| C 回调 / 旧 SDK 桥接 | `@unchecked Sendable` | `// ESCAPE: @unchecked Sendable — <理由>` |
-| 第三方 SDK 要求 Combine | `import Combine`（限桥接层） | `// ESCAPE: Combine — <SDK 名称>` |
-| SwiftUI 不支持的平台 API | UIKit / AppKit | `// ESCAPE: UIKit/AppKit — <API 名称>` |
-| 需全局唯一的系统资源 | `static let shared` | `// ESCAPE: Singleton — <资源名称>` |
+| 场景                     | 允许使用                     | 标注格式                                  |
+| ------------------------ | ---------------------------- | ----------------------------------------- |
+| C 回调 / 旧 SDK 桥接     | `@unchecked Sendable`        | `// ESCAPE: @unchecked Sendable — <理由>` |
+| 第三方 SDK 要求 Combine  | `import Combine`（限桥接层） | `// ESCAPE: Combine — <SDK 名称>`         |
+| SwiftUI 不支持的平台 API | UIKit / AppKit               | `// ESCAPE: UIKit/AppKit — <API 名称>`    |
+| 需全局唯一的系统资源     | `static let shared`          | `// ESCAPE: Singleton — <资源名称>`       |
 
 > **规则**：逃生舱口代码应隔离在单独的文件或类型中，不可扩散到 View / ViewModel 层。
 
@@ -247,12 +248,12 @@ struct SomeView: View {
 
 ### 4.5 何时使用独立 ViewModel
 
-| 场景 | 推荐 |
-|------|------|
-| 简单 CRUD 页面 | 直接注入 Service |
+| 场景                 | 推荐               |
+| -------------------- | ------------------ |
+| 简单 CRUD 页面       | 直接注入 Service   |
 | 需要组合多个 Service | 创建独立 ViewModel |
-| 需要页面级临时状态 | 创建独立 ViewModel |
-| 复杂表单验证逻辑 | 创建独立 ViewModel |
+| 需要页面级临时状态   | 创建独立 ViewModel |
+| 复杂表单验证逻辑     | 创建独立 ViewModel |
 
 ```swift
 // 复杂场景：独立 ViewModel 组合多个 Service
@@ -651,12 +652,12 @@ init() {
 
 ### 8.1 适用场景
 
-| 场景 | 推荐 |
-|------|------|
-| 纯本地 App（无网络） | 不需要网络层 |
-| 简单 REST API（≤ 5 个接口） | URLSession 直接使用 |
+| 场景                        | 推荐                      |
+| --------------------------- | ------------------------- |
+| 纯本地 App（无网络）        | 不需要网络层              |
+| 简单 REST API（≤ 5 个接口） | URLSession 直接使用       |
 | 复杂 REST API（> 5 个接口） | Endpoint 协议 + APIClient |
-| 需要认证 / 重试 / 拦截器 | Alamofire（通过 SPM） |
+| 需要认证 / 重试 / 拦截器    | Alamofire（通过 SPM）     |
 
 ### 8.2 Endpoint 协议
 
@@ -806,12 +807,12 @@ extension APIClient {
 
 ### 9.2 允许清单
 
-| 包名 | 场景 | 条件 |
-|------|------|------|
-| Alamofire | 复杂网络请求 | > 5 个 API + 需认证/重试/拦截器 |
-| KeychainAccess | 安全存储 | 需要跨 App Group 共享 |
-| swift-algorithms | 集合算法 | Apple 官方维护 |
-| swift-collections | 高级数据结构 | Apple 官方维护 |
+| 包名              | 场景         | 条件                            |
+| ----------------- | ------------ | ------------------------------- |
+| Alamofire         | 复杂网络请求 | > 5 个 API + 需认证/重试/拦截器 |
+| KeychainAccess    | 安全存储     | 需要跨 App Group 共享           |
+| swift-algorithms  | 集合算法     | Apple 官方维护                  |
+| swift-collections | 高级数据结构 | Apple 官方维护                  |
 
 ### 9.3 Tuist 依赖集成
 
@@ -1178,29 +1179,29 @@ final class AppUITests: XCTestCase {
 
 ### 15.6 覆盖率目标
 
-| 层级 | 目标 |
-|------|------|
+| 层级                 | 目标  |
+| -------------------- | ----- |
 | Service / Repository | ≥ 80% |
-| ViewModel | ≥ 60% |
-| 整体 | ≥ 50% |
+| ViewModel            | ≥ 60% |
+| 整体                 | ≥ 50% |
 
 ### 15.7 CI 覆盖率门禁
 
 在 CI 中强制检查覆盖率，低于阈值则失败：
 
 ```yaml
-      - name: Check Coverage
-        run: |
-          xcrun xccov view --report TestResults.xcresult --json | \
-            python3 -c "
-          import json, sys
-          data = json.load(sys.stdin)
-          coverage = data['lineCoverage']
-          print(f'Coverage: {coverage:.1%}')
-          if coverage < 0.50:
-              print('ERROR: Coverage below 50% threshold')
-              sys.exit(1)
-          "
+- name: Check Coverage
+  run: |
+    xcrun xccov view --report TestResults.xcresult --json | \
+      python3 -c "
+    import json, sys
+    data = json.load(sys.stdin)
+    coverage = data['lineCoverage']
+    print(f'Coverage: {coverage:.1%}')
+    if coverage < 0.50:
+        print('ERROR: Coverage below 50% threshold')
+        sys.exit(1)
+    "
 ```
 
 ---
@@ -1367,17 +1368,17 @@ reporter: xcode
 
 ## 十九、命名约定
 
-| 类别 | 规则 | 示例 |
-|------|------|------|
-| 类型 | UpperCamelCase | `ItemService`, `DashboardViewModel` |
-| 协议 | 名词 + `Protocol` 后缀 | `ItemRepositoryProtocol` |
-| 方法 / 属性 | lowerCamelCase | `loadItems()`, `selectedTab` |
-| 枚举 case | lowerCamelCase | `.typeA`, `.settings` |
-| 常量 | lowerCamelCase（`static let`） | `DesignTokens.Spacing.md` |
-| 文件 | 与主类型同名 | `ItemService.swift` |
-| Accessibility ID | snake_case 字符串 | `"add_item_button"` |
-| Logger category | 小写单词 | `"app"`, `"data"`, `"network"` |
-| 本地化 comment | 说明用途 | `comment: "Accessibility label"` |
+| 类别             | 规则                           | 示例                                |
+| ---------------- | ------------------------------ | ----------------------------------- |
+| 类型             | UpperCamelCase                 | `ItemService`, `DashboardViewModel` |
+| 协议             | 名词 + `Protocol` 后缀         | `ItemRepositoryProtocol`            |
+| 方法 / 属性      | lowerCamelCase                 | `loadItems()`, `selectedTab`        |
+| 枚举 case        | lowerCamelCase                 | `.typeA`, `.settings`               |
+| 常量             | lowerCamelCase（`static let`） | `DesignTokens.Spacing.md`           |
+| 文件             | 与主类型同名                   | `ItemService.swift`                 |
+| Accessibility ID | snake_case 字符串              | `"add_item_button"`                 |
+| Logger category  | 小写单词                       | `"app"`, `"data"`, `"network"`      |
+| 本地化 comment   | 说明用途                       | `comment: "Accessibility label"`    |
 
 ---
 
@@ -1431,7 +1432,7 @@ type: `feat` / `fix` / `refactor` / `test` / `chore` / `docs` / `style` / `perf`
 
 ## 二十二、变更日志
 
-| 日期 | 版本 | 变更内容 |
-|------|------|----------|
-| 2026-02-27 | 1.0 | 初始版本，基于已有 iOS/macOS 项目提取 |
-| 2026-02-28 | 2.0 | 重构为三文档结构；新增网络层、SPM 管理、App 生命周期、错误重试、DB 恢复、缓存内存压力、CI 覆盖率门禁；Typography 改用语义 Font 支持 Dynamic Type；并发策略增加逃生舱口；DI 协议不绑定 Observable；统一两平台 SwiftLint 基线 |
+| 日期       | 版本 | 变更内容                                                                                                                                                                                                                    |
+| ---------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-02-27 | 1.0  | 初始版本，基于已有 iOS/macOS 项目提取                                                                                                                                                                                       |
+| 2026-02-28 | 2.0  | 重构为三文档结构；新增网络层、SPM 管理、App 生命周期、错误重试、DB 恢复、缓存内存压力、CI 覆盖率门禁；Typography 改用语义 Font 支持 Dynamic Type；并发策略增加逃生舱口；DI 协议不绑定 Observable；统一两平台 SwiftLint 基线 |

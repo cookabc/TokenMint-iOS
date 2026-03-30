@@ -8,12 +8,12 @@
 
 ## 一、技术栈（iOS 增量）
 
-| 维度 | 选型 | 备注 |
-|------|------|------|
-| 最低版本 | iOS 26.0 | Liquid Glass + SwiftUI 7 |
-| 导航 | `NavigationStack` + `Router` | 类型安全路由 |
-| 触觉 | `.sensoryFeedback()` 修饰符 | 零 UIKit 依赖 |
-| 相机 / 扫描 | AVFoundation / DataScannerViewController | 逃生舱口（见 §六） |
+| 维度        | 选型                                     | 备注                     |
+| ----------- | ---------------------------------------- | ------------------------ |
+| 最低版本    | iOS 26.0                                 | Liquid Glass + SwiftUI 7 |
+| 导航        | `NavigationStack` + `Router`             | 类型安全路由             |
+| 触觉        | `.sensoryFeedback()` 修饰符              | 零 UIKit 依赖            |
+| 相机 / 扫描 | AVFoundation / DataScannerViewController | 逃生舱口（见 §六）       |
 
 ---
 
@@ -225,13 +225,13 @@ UINavigationBar.appearance().backgroundColor = .white  // 破坏 Liquid Glass
 
 以下场景允许使用 UIKit，须标注逃生舱口注释：
 
-| API | 场景 | 标注 |
-|-----|------|------|
-| `UIApplication.shared.open(_:)` | 打开外部链接 | `// ESCAPE: UIKit — UIApplication.open` |
-| `UNUserNotificationCenter` | 本地通知 | `// ESCAPE: UIKit — UNUserNotificationCenter` |
-| `UIActivityViewController` | 系统分享 | `// ESCAPE: UIKit — UIActivityViewController` |
-| `AVCaptureSession` | 相机 | `// ESCAPE: UIKit — AVCaptureSession` |
-| `DataScannerViewController` | 文字/条码扫描 | `// ESCAPE: UIKit — DataScannerViewController` |
+| API                             | 场景          | 标注                                           |
+| ------------------------------- | ------------- | ---------------------------------------------- |
+| `UIApplication.shared.open(_:)` | 打开外部链接  | `// ESCAPE: UIKit — UIApplication.open`        |
+| `UNUserNotificationCenter`      | 本地通知      | `// ESCAPE: UIKit — UNUserNotificationCenter`  |
+| `UIActivityViewController`      | 系统分享      | `// ESCAPE: UIKit — UIActivityViewController`  |
+| `AVCaptureSession`              | 相机          | `// ESCAPE: UIKit — AVCaptureSession`          |
+| `DataScannerViewController`     | 文字/条码扫描 | `// ESCAPE: UIKit — DataScannerViewController` |
 
 > 逃生舱口代码隔离在 `Core/PlatformBridge/` 或独立的桥接文件中。
 
@@ -287,13 +287,13 @@ struct PressEffectButtonStyle: ButtonStyle {
 
 ## 十、性能预算（iOS）
 
-| 指标 | 目标 | 测量工具 |
-|------|------|----------|
-| 冷启动 | < 500ms | Instruments → App Launch |
-| 内存（idle） | < 80MB | Instruments → Allocations |
-| 列表滚动 | 60fps | Instruments → Core Animation |
-| SwiftData 查询（100 条） | < 100ms | `os_signpost` |
-| ImageCache 命中率 | > 90% | 自定义 `os_signpost` |
+| 指标                     | 目标    | 测量工具                     |
+| ------------------------ | ------- | ---------------------------- |
+| 冷启动                   | < 500ms | Instruments → App Launch     |
+| 内存（idle）             | < 80MB  | Instruments → Allocations    |
+| 列表滚动                 | 60fps   | Instruments → Core Animation |
+| SwiftData 查询（100 条） | < 100ms | `os_signpost`                |
+| ImageCache 命中率        | > 90%   | 自定义 `os_signpost`         |
 
 ---
 
