@@ -1,5 +1,4 @@
 # Xcode
-#
 # Reference: https://github.com/github/gitignore/blob/main/Swift.gitignore
 
 ## Build artifacts
@@ -33,24 +32,10 @@ Derived/
 .build/
 .swiftpm/
 
-# CocoaPods
-# Pods/
-
-# Carthage
-# Carthage/Build/
-
-# Fastlane
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
-fastlane/test_output
-
 # macOS
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon
-
 ._*
 .DocumentRevisions-V100
 .fseventsd
@@ -60,19 +45,22 @@ Icon
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
-# Directories potentially created on remote AFP share
 .AppleDB
 .AppleDesktop
 Network Trash Folder
 Temporary Items
 .apdisk
 
-# AI Tools
+# AI tool artifacts
 .claude/
 .cursor/
 .agent/
 .anthropic/
 .jules/
+
+# SwiftLint & SwiftFormat
+.swiftlint-cache
+.swiftformat
 
 # Local configuration
 .env
