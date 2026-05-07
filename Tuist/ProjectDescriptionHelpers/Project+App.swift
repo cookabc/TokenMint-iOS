@@ -21,14 +21,14 @@ public extension Project {
             "UISupportedInterfaceOrientations": [
                 "UIInterfaceOrientationPortrait",
                 "UIInterfaceOrientationLandscapeLeft",
-                "UIInterfaceOrientationLandscapeRight",
+                "UIInterfaceOrientationLandscapeRight"
             ],
             "UISupportedInterfaceOrientations~iPad": [
                 "UIInterfaceOrientationPortrait",
                 "UIInterfaceOrientationPortraitUpsideDown",
                 "UIInterfaceOrientationLandscapeLeft",
-                "UIInterfaceOrientationLandscapeRight",
-            ],
+                "UIInterfaceOrientationLandscapeRight"
+            ]
         ]
         if let displayName { plist["CFBundleDisplayName"] = .string(displayName) }
         plist.merge(infoPlist) { _, new in new }
@@ -39,7 +39,7 @@ public extension Project {
         let appConfigurations: [Configuration] = schemeConfig == .release
             ? [
                 .debug(name: "Debug", settings: ["SWIFT_OPTIMIZATION_LEVEL": "-Onone"]),
-                .release(name: "Release", settings: ["SWIFT_OPTIMIZATION_LEVEL": "-O"]),
+                .release(name: "Release", settings: ["SWIFT_OPTIMIZATION_LEVEL": "-O"])
             ]
             : []
 
@@ -48,7 +48,7 @@ public extension Project {
             settings: .settings(
                 base: [
                     "SWIFT_VERSION": "6.2",
-                    "SWIFT_STRICT_CONCURRENCY": "complete",
+                    "SWIFT_STRICT_CONCURRENCY": "complete"
                 ]
             ),
             targets: [
@@ -63,13 +63,13 @@ public extension Project {
                     resources: [
                         "App/Assets.xcassets",
                         "App/PrivacyInfo.xcprivacy",
-                        "Resources/Localizable.xcstrings",
+                        "Resources/Localizable.xcstrings"
                     ],
                     settings: .settings(
                         base: [
                             "CURRENT_PROJECT_VERSION": "1",
                             "MARKETING_VERSION": "1.0",
-                            "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
+                            "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon"
                         ],
                         configurations: appConfigurations
                     )
@@ -91,7 +91,7 @@ public extension Project {
                     deploymentTargets: .iOS("26.0"),
                     sources: ["Tests/UITests/**"],
                     dependencies: [.target(name: name)]
-                ),
+                )
             ],
             schemes: [
                 .scheme(
@@ -100,7 +100,7 @@ public extension Project {
                     testAction: .targets(
                         [
                             .init(stringLiteral: "\(name)Tests"),
-                            .init(stringLiteral: "\(name)UITests"),
+                            .init(stringLiteral: "\(name)UITests")
                         ],
                         configuration: configuration
                     ),
@@ -108,7 +108,7 @@ public extension Project {
                     archiveAction: .archiveAction(configuration: .release),
                     profileAction: .profileAction(configuration: .release),
                     analyzeAction: .analyzeAction(configuration: configuration)
-                ),
+                )
             ]
         )
     }

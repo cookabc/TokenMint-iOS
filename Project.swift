@@ -7,7 +7,7 @@ let project = Project.app(
     displayName: "TokenMint",
     infoPlist: [
         "NSCameraUsageDescription": "Camera is needed to scan QR codes for adding tokens",
-        "NSFaceIDUsageDescription": "Face ID is used to protect your vault",
+        "NSFaceIDUsageDescription": "Face ID is used to protect your vault"
     ],
     testSources: ["Tests/UnitTests/**", "Tests/IntegrationTests/**"]
 )
